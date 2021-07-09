@@ -25,6 +25,10 @@
         {
             "owner": "roboticsbrno",
             "name": "SmartLeds"
+        },
+        {
+            "name": "eventpp",
+            "version": "https://github.com/haberturdeur/eventpp.git"
         }
     ],
     "build": {

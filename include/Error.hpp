@@ -10,7 +10,8 @@
 #define ENABLE_CZECH_ERRORS false
 #endif
 
-void sanityCheck(bool expression, const char* tag, const char* errorMessage, unsigned stackTraceDepth = 10) {
+[[gnu::always_inline]]
+inline void sanityCheck(bool expression, const char* tag, const char* errorMessage, unsigned stackTraceDepth = 10) {
     if (!expression){
         ESP_LOGE(tag, "%s", errorMessage);
         esp_backtrace_print(stackTraceDepth);
@@ -37,7 +38,13 @@ static const std::string errorsCs[] = {
     "Podteceni promenne",
 };
 
-
-void sanityCheck(bool expression, const char* tag, ErrorCodes errorCode, unsigned stackTraceDepth = 10) {
+[[gnu::always_inline]]
+inline void sanityCheck(bool expression, const char* tag, ErrorCodes errorCode, unsigned stackTraceDepth = 10) {
     sanityCheck(expression, tag, (ENABLE_CZECH_ERRORS ? errorsCs : errors)[errorCode].c_str(), stackTraceDepth);
+}
+
+[[gnu::always_inline]]
+inline void checkRange(int value, int min, int max, const char* tag, unsigned stackTraceDepth = 10) {
+    sanityCheck(value <= max, tag, VariableOverflow);
+    sanityCheck(value >= min, tag, VariableUnderflow);
 }
