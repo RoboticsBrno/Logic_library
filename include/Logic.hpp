@@ -1,9 +1,9 @@
 #pragma once
 
+#include "Buttons.hpp"
 #include "Display.hpp"
 #include "Pinout.hpp"
 #include "StatusBar.hpp"
-#include "Buttons.hpp"
 #include <bitset>
 #include <eventpp/callbacklist.h>
 #include <functional>
@@ -11,17 +11,13 @@
 class Logic {
     friend class Buttons;
     friend void trampoline(void*);
-private:
-    using CallbackList = eventpp::CallbackList<void(std::bitset<MaxID>)>;
-    using Condition = std::function<bool(std::bitset<MaxID>)>;
 
+private:
     const char* m_tag = "Logic";
 
     Display m_display;
 
     StatusBar m_statusBar;
-
-    CallbackList m_callbackListButtons;
 
     Buttons m_buttons;
 
@@ -46,11 +42,6 @@ public:
     StatusBar& statusBar();
 
     Buttons& buttons();
-
-    CallbackList::Handle onButtonChange(CallbackList::Callback function);
-    CallbackList::Handle onButtonChange(CallbackList::Callback function, Condition condition);
-
-    void removeOnButtonChange(CallbackList::Handle);
 };
 
 void logicMain();

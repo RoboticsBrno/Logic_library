@@ -6,18 +6,7 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
 
-xQueueHandle eventQueue = nullptr;
-
-Buttons::Buttons()
-    : m_config {
-        .pin_bit_mask = 0,
-        .mode = GPIO_MODE_INPUT,
-        .pull_up_en = GPIO_PULLUP_ENABLE,
-        .pull_down_en = GPIO_PULLDOWN_DISABLE,
-        .intr_type = GPIO_INTR_ANYEDGE,
-    } {
-    for (const auto i : Pins::Buttons)
-        m_config.pin_bit_mask |= (1ULL << i);
+Buttons::Buttons() {
 }
 
 bool IRAM_ATTR Buttons::read(gpio_num_t gpio) {
@@ -41,15 +30,55 @@ std::bitset<MaxID> IRAM_ATTR Buttons::readAll() {
 }
 
 void Buttons::init() {
-    gpio_config(&m_config);
+    gpio_config_t config = {
+        .pin_bit_mask = 0,
+        .mode = GPIO_MODE_INPUT,
+        .pull_up_en = GPIO_PULLUP_ENABLE,
+        .pull_down_en = GPIO_PULLDOWN_DISABLE,
+        .intr_type = GPIO_INTR_ANYEDGE,
+    };
+
+    for (const auto i : Pins::Buttons)
+        config.pin_bit_mask |= (1ULL << i);
+
+    gpio_config(&config);
+
+    m_eventQueue = xQueueCreate(10, sizeof(std::bitset<MaxID>));
+    xTaskCreate(callbacksTask, "logicBtnCb", 4096, this, 5, nullptr);
 
     gpio_install_isr_service(0);
     for (const auto i : Pins::Buttons)
-        gpio_isr_handler_add(i, isrHandler, nullptr);
-    eventQueue = xQueueCreate(10, sizeof(std::bitset<MaxID>));
+        gpio_isr_handler_add(i, isrHandler, this);
 }
 
-void IRAM_ATTR Buttons::isrHandler(void* param) {
-    std::bitset<MaxID> out(readAll());
-    xQueueSendFromISR(eventQueue, &out, nullptr);
+void IRAM_ATTR Buttons::isrHandler(void* selfVoid) {
+    auto* self = ((Buttons*)selfVoid);
+    std::bitset<MaxID> currentState(readAll());
+    xQueueSendFromISR(self->m_eventQueue, &currentState, nullptr);
+}
+
+void Buttons::callbacksTask(void* selfVoid) {
+    auto* self = ((Buttons*)selfVoid);
+    auto lastState = readAll();
+    std::bitset<MaxID> currentState;
+
+    while (true) {
+        if (!xQueueReceive(self->m_eventQueue, &currentState, portMAX_DELAY))
+            continue;
+
+        auto changed = lastState ^ currentState;
+        lastState = currentState;
+        if (changed.none())
+            continue;
+
+        self->m_callbackListButtons(currentState, changed);
+    }
+}
+
+Buttons::CallbackList::Handle Buttons::onChange(Buttons::CallbackList::Callback function) {
+    return m_callbackListButtons.append(function);
+}
+
+void Buttons::removeCallback(CallbackList::Handle handle) {
+    m_callbackListButtons.remove(handle);
 }
