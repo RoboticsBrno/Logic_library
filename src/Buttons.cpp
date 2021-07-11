@@ -3,6 +3,10 @@
 #include "Logic.hpp"
 #include "Pinout.hpp"
 #include <driver/gpio.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/queue.h>
+
+xQueueHandle eventQueue = nullptr;
 
 Buttons::Buttons()
     : m_config {
@@ -39,9 +43,13 @@ std::bitset<MaxID> IRAM_ATTR Buttons::readAll() {
 void Buttons::init() {
     gpio_config(&m_config);
 
-    gpio_isr_register(trampoline, nullptr, 0, nullptr);
+    gpio_install_isr_service(0);
+    for (const auto i : Pins::Buttons)
+        gpio_isr_handler_add(i, isrHandler, nullptr);
+    eventQueue = xQueueCreate(10, sizeof(std::bitset<MaxID>));
 }
 
-void IRAM_ATTR Buttons::trampoline(void* param) {
-    Logic::singleton().m_callbackListButtons(readAll());
+void IRAM_ATTR Buttons::isrHandler(void* param) {
+    std::bitset<MaxID> out(readAll());
+    xQueueSendFromISR(eventQueue, &out, nullptr);
 }

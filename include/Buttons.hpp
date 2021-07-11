@@ -5,6 +5,10 @@
 #include <bitset>
 #include <driver/gpio.h>
 #include <soc/gpio_periph.h>
+#include <freertos/FreeRTOS.h>
+#include <freertos/queue.h>
+
+extern xQueueHandle eventQueue;
 
 class Buttons {
 private:
@@ -17,7 +21,7 @@ public:
     static bool IRAM_ATTR read(ButtonID);
     static std::bitset<MaxID> IRAM_ATTR readAll();
 
-    static void IRAM_ATTR trampoline(void*);
+    static void IRAM_ATTR isrHandler(void*);
 
     Buttons();
 

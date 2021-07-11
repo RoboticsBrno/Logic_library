@@ -6,6 +6,7 @@
 #include <eventpp/utilities/conditionalfunctor.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
+#include <freertos/queue.h>
 #include <functional>
 #include <thread>
 
@@ -49,7 +50,7 @@ Logic::CallbackList::Handle Logic::onButtonChange(Logic::CallbackList::Callback 
     return m_callbackListButtons.append(function);
 }
 
-Logic::CallbackList::Handle Logic::onButtonChange(Logic::CallbackList::Callback function, Logic::CallbackList::Callback condition) {
+Logic::CallbackList::Handle Logic::onButtonChange(Logic::CallbackList::Callback function, Logic::Condition condition) {
     return m_callbackListButtons.append(eventpp::conditionalFunctor(function, condition));
 }
 
@@ -57,12 +58,25 @@ void Logic::removeOnButtonChange(CallbackList::Handle handle) {
     m_callbackListButtons.remove(handle);
 }
 
+Logic& logic = Logic::singleton();
+Display& display = logic.display();
+StatusBar& statusBar = logic.statusBar();
+Buttons& buttons = logic.buttons();
+
 extern void logicMain();
+
+void trampoline(void *) {
+    std::bitset<MaxID> data;
+    while(true)
+        if (xQueueReceive(eventQueue, &data, portMAX_DELAY))
+            logic.m_callbackListButtons(data);
+}
 
 extern "C" {
 [[gnu::weak]] void app_main() {
     logic.init();
     logic.turnOnLeds();
+    xTaskCreate(trampoline, "trampoline", 2048, nullptr, 10, nullptr);
 
     std::thread logicMainThread(logicMain);
 

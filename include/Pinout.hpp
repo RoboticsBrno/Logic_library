@@ -19,7 +19,7 @@ enum ButtonID {
 namespace Pins {
 namespace Corners {
 static constexpr gpio_num_t LeftUp = GPIO_NUM_18;
-static constexpr gpio_num_t LeftDown = GPIO_NUM_14;
+static constexpr gpio_num_t LeftDown = GPIO_NUM_4;
 static constexpr gpio_num_t RightUp = GPIO_NUM_19;
 static constexpr gpio_num_t RightDown = GPIO_NUM_25;
 } // namespace Buttons
