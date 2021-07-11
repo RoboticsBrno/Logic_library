@@ -24,11 +24,12 @@
     "dependencies": [
         {
             "owner": "roboticsbrno",
-            "name": "SmartLeds"
+            "name": "SmartLeds",
+            "version": "http://git.rb/SmartLeds.git"
         },
         {
             "name": "eventpp",
-            "version": "https://github.com/haberturdeur/eventpp.git"
+            "version": "http://git.rb/envetpp.git"
         }
     ],
     "build": {
