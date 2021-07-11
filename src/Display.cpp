@@ -139,9 +139,10 @@ void Display::show(int i_intensity) {
 }
 
 Rgb& Display::operator()(int i_x, int i_y) {
-    return m_frame[(i_y * m_width) + i_x];
+    return at(i_x, i_y);
 }
 
 Rgb& Display::operator[](int i_index) {
+    checkRange(i_index, 0, m_frame.size() - 1, m_tag);
     return m_frame[i_index];
 }
