@@ -2,6 +2,7 @@
 
 #include "Pinout.hpp"
 #include <SmartLeds.h>
+#include <array>
 #include <mutex>
 
 enum States {
@@ -24,13 +25,14 @@ private:
 
     mutable std::mutex m_mutex;
 
-    const int m_count;
+    static constexpr int s_count = 5;
 
     int m_state;
     Rgb m_color;
 
     StatusBar(Rgb color = Rgb(255, 255, 255), int count = 5, int i_channel = 1);
 
+    std::array<Rgb, 5> m_frame;
 public:
     StatusBar(StatusBar&) = delete;
     StatusBar(StatusBar&&) = delete;
@@ -57,28 +59,12 @@ public:
     void show(int intensity);
     void ukaz(int intenzita) { show(intenzita); }
 
-    void render();
-    void vykresli() { render(); }
-
-    void render(int intensity);
-    void vykresli(int intenzita) { render(intenzita); }
-
     void clear();
     void vycisti() { clear(); }
 
     Rgb& at(int x);
     Rgb& pozice(int x) { return at(x); }
 
-    StatusBar& operator+=(int);
-    StatusBar& operator-=(int);
-
-    StatusBar& operator++();
-    StatusBar& operator--();
-
-    int operator++(int);
-    int operator--(int);
-
-    operator int() const;
-    StatusBar& operator=(int state);
+    Rgb& operator[](int i_index);
 };
 using StavovyRadek = StatusBar;
