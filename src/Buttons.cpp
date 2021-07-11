@@ -19,6 +19,7 @@ bool IRAM_ATTR Buttons::read(gpio_num_t gpio) {
 }
 
 bool IRAM_ATTR Buttons::read(ButtonID id) {
+    checkRange(id, 0, ButtonID::MaxID - 1, m_tag);
     return read(Pins::Buttons[id]);
 }
 
