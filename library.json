@@ -16,18 +16,20 @@
     ],
     "version": "0.0.1",
     "frameworks": [
+        "arduino",
         "espidf"
     ],
-    "export": {
-        "include" : [
-            "include/*",
-            "src/*",
-            "lib/*"
-        ]
-    },
     "platforms": "espressif32",
     "license": "MIT",
     "dependencies": [
+        {
+            "owner": "roboticsbrno",
+            "name": "SmartLeds"
+        },
+        {
+            "name": "eventpp",
+            "version": "https://github.com/haberturdeur/eventpp.git"
+        }
     ],
     "build": {
         "flags": "-std=c++17 -std=gnu++17",
