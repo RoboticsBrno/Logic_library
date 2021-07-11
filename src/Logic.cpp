@@ -5,8 +5,8 @@
 #include <eventpp/callbacklist.h>
 #include <eventpp/utilities/conditionalfunctor.h>
 #include <freertos/FreeRTOS.h>
-#include <freertos/task.h>
 #include <freertos/queue.h>
+#include <freertos/task.h>
 #include <functional>
 #include <thread>
 
@@ -46,6 +46,10 @@ Display& Logic::display() {
     return m_display;
 }
 
+Buttons& Logic::buttons() {
+    return m_buttons;
+}
+
 Logic::CallbackList::Handle Logic::onButtonChange(Logic::CallbackList::Callback function) {
     return m_callbackListButtons.append(function);
 }
@@ -65,9 +69,9 @@ Buttons& buttons = logic.buttons();
 
 extern void logicMain();
 
-void trampoline(void *) {
+void trampoline(void*) {
     std::bitset<MaxID> data;
-    while(true)
+    while (true)
         if (xQueueReceive(eventQueue, &data, portMAX_DELAY))
             logic.m_callbackListButtons(data);
 }
