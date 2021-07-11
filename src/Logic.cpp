@@ -50,10 +50,15 @@ Buttons& Logic::buttons() {
     return m_buttons;
 }
 
+Buzzer& Logic::buzzer() {
+    return m_buzzer;
+}
+
 Logic& logic = Logic::singleton();
 Display& display = logic.display();
 StatusBar& statusBar = logic.statusBar();
 Buttons& buttons = logic.buttons();
+Buzzer& buzzer = logic.buzzer();
 
 extern void logicMain();
 

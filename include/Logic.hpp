@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Buttons.hpp"
+#include "Buzzer.hpp"
 #include "Display.hpp"
 #include "Pinout.hpp"
 #include "StatusBar.hpp"
@@ -17,10 +18,9 @@ private:
     const char* m_tag = "Logic";
 
     Display m_display;
-
     StatusBar m_statusBar;
-
     Buttons m_buttons;
+    Buzzer m_buzzer;
 
     Logic();
 
@@ -39,10 +39,9 @@ public:
     ~Logic() = default;
 
     Display& display();
-
     StatusBar& statusBar();
-
     Buttons& buttons();
+    Buzzer& buzzer();
 };
 
 void logicMain();
@@ -51,3 +50,4 @@ extern Logic& logic;
 extern Display& display;
 extern StatusBar& statusBar;
 extern Buttons& buttons;
+extern Buzzer& buzzer;
