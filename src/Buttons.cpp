@@ -21,11 +21,11 @@ Buttons::Buttons()
 }
 
 bool IRAM_ATTR Buttons::read(gpio_num_t gpio) {
-    constexpr gpio_dev_t *hw = &GPIO;
+    constexpr gpio_dev_t* hw = &GPIO;
     if (gpio < 32) {
-        return (hw->in >> gpio) & 0x1;
+        return ((hw->in >> gpio) & 0x1) == 0;
     } else {
-        return (hw->in1.data >> (gpio - 32)) & 0x1;
+        return ((hw->in1.data >> (gpio - 32)) & 0x1) == 0;
     }
 }
 
@@ -36,7 +36,7 @@ bool IRAM_ATTR Buttons::read(ButtonID id) {
 std::bitset<MaxID> IRAM_ATTR Buttons::readAll() {
     std::bitset<MaxID> out;
     for (int i = 0; i < MaxID; i++)
-        out[i] = read(static_cast<gpio_num_t>(i));
+        out[i] = read(ButtonID(i));
     return out;
 }
 
