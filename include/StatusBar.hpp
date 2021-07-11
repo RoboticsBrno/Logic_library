@@ -41,28 +41,100 @@ public:
 
     ~StatusBar() = default;
 
+    /**
+     * @brief Set progress
+     * 
+     * @param state ID of state to set/progress made
+     */
     void setState(int state);
+
+    /**
+     * @brief Nastaví stav
+     * 
+     * @param stav ID stavu/dokončený progress
+     */
     void nastavStav(int stav) { setState(stav); }
 
+    /**
+     * @brief Returns current state
+     * 
+     * @return int Current state
+     */
     int state() const;
+
+    /**
+     * @brief Vrátí aktuálně nastavený stav
+     * 
+     * @return int aktuální stav
+     */
     int stav() const { return state(); }
 
+    /**
+     * @brief Set the color of status bar
+     * 
+     * @param color 
+     */
     void setColor(Rgb color);
+
+    /**
+     * @brief Nastaví barvu stavové řádky
+     * 
+     * @param barva 
+     */
     void nastavBarvu(Rgb barva) { setColor(barva); }
 
+    /**
+     * @brief Returns current color of status bar
+     * 
+     * @return Rgb current status bar color
+     */
     Rgb color() const;
+
+    /**
+     * @brief Vrátí aktuální barvu stavového řádku
+     * 
+     * @return Rgb aktuální barva stavového řádku
+     */
     Rgb barva() const { return color(); }
 
-    void show();
-    void ukaz() { show(); }
+    /**
+     * @brief Show current frame/state
+     * 
+     * @param intensity [0-255] maximal intenzity
+     */
+    void show(int intensity = 255);
 
-    void show(int intensity);
-    void ukaz(int intenzita) { show(intenzita); }
+    /**
+     * @brief Vykreslí aktuální snímek/stav
+     * 
+     * @param intenzita [0-255] maximální intenzita na jejíž hodnotu se barvy uprav
+     */
+    void ukaz(int intenzita = 255) { show(intenzita); }
 
+    /**
+     * @brief Clear the display
+     */
     void clear();
+
+    /**
+     * @brief Vyčistí celý displej
+     */
     void vycisti() { clear(); }
 
+    /**
+     * @brief Return pixel at given position
+     * 
+     * @param x position
+     * @return Rgb& Reference to pixel at position x
+     */
     Rgb& at(int x);
+
+    /**
+     * @brief Vrátí pixel na dané pozici
+     * 
+     * @param x pozice
+     * @return Rgb& Reference na požadovaný pixel
+     */
     Rgb& pozice(int x) { return at(x); }
 
     Rgb& operator[](int i_index);
