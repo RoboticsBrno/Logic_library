@@ -4,6 +4,7 @@
 #include "Display.hpp"
 #include "Pinout.hpp"
 #include "StatusBar.hpp"
+#include "TimeUtils.hpp"
 #include <bitset>
 #include <eventpp/callbacklist.h>
 #include <functional>
@@ -45,8 +46,6 @@ public:
 };
 
 void logicMain();
-
-void delayS();
 
 extern Logic& logic;
 extern Display& display;
