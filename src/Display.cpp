@@ -26,9 +26,9 @@ Rgb& Display::at(int i_x, int i_y) {
     return m_frame[(i_y * m_width) + i_x];
 }
 
-void Display::clear() {
+void Display::fill(Rgb color) {
     for (int i = 0; i < m_width * m_height; i++)
-        m_frame[i] = Rgb(0, 0, 0);
+        m_frame[i] = color;
 }
 
 void Display::drawRectangle(int i_x, int i_y, int i_width, int i_height, Rgb i_color, int strokeWidth) {

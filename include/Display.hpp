@@ -6,7 +6,7 @@
 
 /**
  * @brief Structure for describing rectangles on display
- * 
+ *
  */
 struct Rectangle {
     Rectangle(int x, int y, int w, int h)
@@ -53,8 +53,8 @@ public:
 
     /**
      * @brief Returns reference to pixel on that position
-     * 
-     * @param x X coordinate 
+     *
+     * @param x X coordinate
      * @param y Y coordinate
      * @return Rgb& Pixel at requested position
      */
@@ -62,7 +62,7 @@ public:
 
     /**
      * @brief Vrátí pixel na dané pozici
-     * 
+     *
      * @param x X-ová souřadnice
      * @param y Y-ová souřadnice
      * @return Rgb& Reference na pixel na dané pozici
@@ -71,7 +71,7 @@ public:
 
     /**
      * @brief Set the color of pixel at specified position
-     * 
+     *
      * @param x X coordinate
      * @param y Y coordinate
      * @param color Color
@@ -84,7 +84,7 @@ public:
 
     /**
      * @brief Nastaví barvu pixelu na dané pozici
-     * 
+     *
      * @param x X-ová souřadnice
      * @param y Y-ová souřadnice
      * @param color Barva
@@ -94,7 +94,9 @@ public:
     /**
      * @brief Clear the display
      */
-    void clear();
+    void clear() {
+        fill(Rgb(0, 0, 0));
+    }
 
     /**
      * @brief Vyčistí celý displej
@@ -102,34 +104,51 @@ public:
     void vycisti() { clear(); }
 
     /**
-     * @brief Draw rectangle with specified parameters 
-     * 
-     * @param x X coordinate of top-left corner
-     * @param y Y coordinate of top-left corner
-     * @param width 
-     * @param height 
-     * @param color 
-     * @param strokeWidth 
+     * @brief Fill the display with color
+     *
+     * @param color Color
      */
-    void drawRectangle(int x, int y, int width, int height, Rgb color, int strokeWidth = 1);
+    void fill(Rgb color);
+
+    /**
+     * @brief Vyplň celý displej barvou.
+     *
+     * @param barva barva
+     */
+    void vypln(Rgb barva) {
+        fill(barva);
+    }
 
     /**
      * @brief Draw rectangle with specified parameters
-     * 
+     *
+     * @param x X coordinate of top-left corner
+     * @param y Y coordinate of top-left corner
+     * @param width
+     * @param height
+     * @param color
+     * @param strokeWidth
+     */
+    void
+    drawRectangle(int x, int y, int width, int height, Rgb color, int strokeWidth = 1);
+
+    /**
+     * @brief Draw rectangle with specified parameters
+     *
      * @param rect Struct used to define parameters
-     * @param color 
-     * @param strokeWidth 
+     * @param color
+     * @param strokeWidth
      */
     void drawRectangle(const Rectangle& rect, Rgb color, int strokeWidth = 1) { drawRectangle(rect.x, rect.y, rect.w, rect.h, color, strokeWidth); }
 
     /**
      * @brief Draw filled rectangle with specified parameters
-     * 
+     *
      * @param x X coordinate of top-left corner
      * @param y Y coordinate of top-left corner
-     * @param width 
-     * @param height 
-     * @param color 
+     * @param width
+     * @param height
+     * @param color
      */
     void drawRectangleFilled(int x, int y, int width, int height, Rgb color) {
         drawRectangle(x, y, width, height, color, INT_MAX);
@@ -137,9 +156,9 @@ public:
 
     /**
      * @brief Draw filled rectangle with specified parameters
-     * 
+     *
      * @param rect Struct used to define parameters
-     * @param color 
+     * @param color
      */
     void drawRectangleFilled(const Rectangle& rect, Rgb color) {
         drawRectangle(rect.x, rect.y, rect.w, rect.h, color, INT_MAX);
@@ -147,52 +166,52 @@ public:
 
     /**
      * @brief Nakreslí obdélník se zadanými parametry
-     * 
+     *
      * @param x X-ová souřadnice levého horního rohu obdélníku
      * @param y Y-ová souřadnice levého horního rohu obdélníku
-     * @param sirka 
-     * @param vyska 
-     * @param barva 
-     * @param tloustkaCary 
+     * @param sirka
+     * @param vyska
+     * @param barva
+     * @param tloustkaCary
      */
     void nakresliObdelnik(int x, int y, int sirka, int vyska, Rgb barva, int tloustkaCary = 1) { drawRectangle(x, y, sirka, vyska, barva, tloustkaCary); }
 
     /**
      * @brief Nakreslí obdélník se zadanými parametry
-     * 
+     *
      * @param obdelnik Struktura pro zadání parametrů
-     * @param barva 
-     * @param tloustkaCary 
+     * @param barva
+     * @param tloustkaCary
      */
     void nakresliObdelnik(const Obdelnik& obdelnik, Rgb barva, int tloustkaCary = 1) { drawRectangle(obdelnik, barva, tloustkaCary); }
 
     /**
      * @brief Nakreslí vyplněný obdélník se zadanými parametry
-     * 
+     *
      * @param x X-ová souřadnice levého horního rohu obdélníku
      * @param y Y-ová souřadnice levého horního rohu obdélníku
-     * @param sirka 
-     * @param vyska 
-     * @param barva 
+     * @param sirka
+     * @param vyska
+     * @param barva
      */
     void nakresliObdelnikVyplneny(int x, int y, int sirka, int vyska, Rgb barva) { drawRectangleFilled(x, y, sirka, vyska, barva); }
 
     /**
      * @brief Nakreslí vyplněný obdélník se zadanými parametry
-     * 
+     *
      * @param obdelnik Struktura pro zadání parametrů
-     * @param barva 
+     * @param barva
      */
     void nakresliObdelnikVyplneny(const Obdelnik& obdelnik, Rgb barva) { drawRectangleFilled(obdelnik, barva); }
 
     /**
      * @brief Draw square with specified parameters
-     * 
+     *
      * @param x X coordinate of top-left corner
      * @param y Y coordinate of top-left corner
      * @param size Length of side
-     * @param color 
-     * @param strokeWidth 
+     * @param color
+     * @param strokeWidth
      */
     void drawSquare(int x, int y, int size, Rgb color, int strokeWidth = 1) {
         drawRectangle(x, y, size, size, color, strokeWidth);
@@ -200,32 +219,32 @@ public:
 
     /**
      * @brief Draw filled square with specified parameters
-     * 
+     *
      * @param x X coordinate of top-left corner
      * @param y Y coordinate of top-left corner
      * @param size Length of side
-     * @param color 
+     * @param color
      */
     void drawSquareFilled(int x, int y, int size, Rgb color) { drawSquare(x, y, size, color, INT_MAX); }
 
     /**
      * @brief Nakreslí čtverec se zadanými parametry
-     * 
+     *
      * @param x X-ová souřadnice levého horního rohu obdélníku
      * @param y Y-ová souřadnice levého horního rohu obdélníku
      * @param strana Délka strany
-     * @param barva 
-     * @param tlouskaCary 
+     * @param barva
+     * @param tlouskaCary
      */
     void nakresliCtverec(int x, int y, int strana, Rgb barva, int tlouskaCary = 1) { drawSquare(x, y, strana, barva, tlouskaCary); }
 
     /**
      * @brief Nakreslí čtverec se zadanými parametry
-     * 
+     *
      * @param x X-ová souřadnice levého horního rohu obdélníku
      * @param y Y-ová souřadnice levého horního rohu obdélníku
-     * @param strana Délka strany 
-     * @param barva 
+     * @param strana Délka strany
+     * @param barva
      */
     void nakresliCtverecVyplneny(int x, int y, int strana, Rgb barva) {
         drawSquareFilled(x, y, strana, barva);
@@ -233,65 +252,65 @@ public:
 
     /**
      * @brief Draw circle with specified parameters
-     * 
+     *
      * @param centerX X coordinate of the center
      * @param centerY Y coordinate of the center
-     * @param radius 
-     * @param color 
+     * @param radius
+     * @param color
      */
     void drawCircle(int centerX, int centerY, int radius, Rgb color);
 
     /**
      * @brief Draw filled circle with specified parameters
-     * 
+     *
      * @param centerX X coordinate of the center
      * @param centerY Y coordinate of the center
-     * @param radius 
-     * @param color 
+     * @param radius
+     * @param color
      */
     void drawCircleFilled(int centerX, int centerY, int radius, Rgb color);
 
     /**
      * @brief Nakreslí kružnici s danými parametry
-     * 
+     *
      * @param stredX X-ová souřadnice středu
      * @param stredY Y-ová souřadnice středu
-     * @param polomer 
-     * @param barva 
+     * @param polomer
+     * @param barva
      */
     void nakresliKruznici(int stredX, int stredY, int polomer, Rgb barva) { drawCircle(stredX, stredY, polomer, barva); }
 
     /**
      * @brief Nakreslí vyplněnou kružnici (kruh) s danými parametry
-     * 
+     *
      * @param stredX X-ová souřadnice středu
      * @param stredY Y-ová souřadnice středu
-     * @param polomer 
-     * @param barva 
+     * @param polomer
+     * @param barva
      */
     void nakresliKruzniciVyplnenou(int stredX, int stredY, int polomer, Rgb barva) { drawCircleFilled(stredX, stredY, polomer, barva); }
 
     /**
      * @brief Draw line
-     * 
+     *
      * @param x1 X coordinate of the beginning
      * @param y1 Y coordinate of the beginning
      * @param x2 X coordinate of the end
      * @param y2 Y coordinate of the end
-     * @param color 
-     * @param strokeWidth 
+     * @param color
+     * @param strokeWidth
      */
     void drawLine(int x1, int y1, int x2, int y2, Rgb color, int strokeWidth = 1);
 
     /**
      * @brief Nakreslí čáru
-     * 
+     *
      * @param x1 X-ová souřadnice počátku
      * @param y1 Y-ová souřadnice počátku
      * @param x2 X-ová souřadnice konce
      * @param y2 Y-ová souřadnice konce
-     * @param barva 
-     * @param tloustkaCary 
+     * @param barva
+     * @param tloustkaCary
      */
     void nakresliCaru(int x1, int y1, int x2, int y2, Rgb barva, int tloustkaCary = 1) {
         drawLine(x1, y1, x2, y2, barva);
@@ -299,14 +318,14 @@ public:
 
     /**
      * @brief Show prepared frame on display
-     * 
-     * @param intensity [0-255] maximal intenzity 
+     *
+     * @param intensity [0-255] maximal intenzity
      */
     void show(int intensity = 255);
 
     /**
      * @brief Vykresli připravený snímek na displeji
-     * 
+     *
      * @param intenzita [0-255] maximální intenzita na jejíž hodnotu se barvy upraví
      */
     void ukaz(int intenzita = 255) { show(intenzita); }
