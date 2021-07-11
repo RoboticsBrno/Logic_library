@@ -175,7 +175,7 @@ public:
      * @param vyska 
      * @param barva 
      */
-    void nakresliObdelnikVyplneny(int x, int , int sirka, int vyska, Rgb barva) { drawRectangleFilled(x, y, sirka, vyska, barva); }
+    void nakresliObdelnikVyplneny(int x, int y, int sirka, int vyska, Rgb barva) { drawRectangleFilled(x, y, sirka, vyska, barva); }
 
     /**
      * @brief Nakreslí vyplněný obdélník se zadanými parametry
