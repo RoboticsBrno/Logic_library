@@ -5,6 +5,7 @@
 #include <driver/gpio.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
+#include <freertos/task.h>
 
 Buttons::Buttons() {
 }
@@ -60,6 +61,7 @@ void IRAM_ATTR Buttons::isrHandler(void* selfVoid) {
 
 void Buttons::callbacksTask(void* selfVoid) {
     auto* self = ((Buttons*)selfVoid);
+    vTaskDelay(pdMS_TO_TICKS(150));
     auto lastState = readAll();
     std::bitset<MaxID> currentState;
 

@@ -148,7 +148,7 @@ public:
         buttons.onPress([](std::bitset<MaxID> currentState) {
             std::cout << "A button has been pressed. ";
 
-            std::cout << "Buttons "
+            std::cout << "Buttons ";
 
             for(int i = 0; i < MaxID; i++) {
                 if (currentState[i] == 1) {
@@ -213,7 +213,7 @@ public:
         buttons.onRelease([](std::bitset<MaxID> currentState) {
             std::cout << "A button has been released. ";
 
-            std::cout << "Buttons "
+            std::cout << "Buttons ";
 
             for(int i = 0; i < MaxID; i++) {
                 if (currentState[i] == 0) {
@@ -341,7 +341,7 @@ public:
         buttons.onPress([](std::bitset<MaxID> aktualniStav) {
             std::cout << "Nějaké tlačítko bylo zmáčknuto. ";
 
-            std::cout << "Tlačítka "
+            std::cout << "Tlačítka ";
 
             for(int i = 0; i < MaxID; i++) {
                 if (aktualniStav[i] == 1) {
@@ -387,7 +387,7 @@ public:
         buttons.priUvolneni([](std::bitset<MaxID> aktualniStav) {
             std::cout << "Tlačítko bylo puštěno. ";
 
-            std::cout << "Tlačítka "
+            std::cout << "Tlačítka ";
 
             for(int i = 0; i < MaxID; i++) {
                 if (aktualniStav[i] == 0) {
