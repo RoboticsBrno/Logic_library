@@ -58,38 +58,64 @@ inline float vteriny() {
     return seconds();
 }
 
-inline long random(long howbig) {
+/**
+ * @brief Get random number from 0 to max
+ * 
+ * @param max Uper limit of random number
+ * @return long Random number
+ */
+inline long random(long max) {
     uint32_t x = esp_random();
-    uint64_t m = uint64_t(x) * uint64_t(howbig);
+    uint64_t m = uint64_t(x) * uint64_t(max);
     uint32_t l = uint32_t(m);
-    if (l < howbig) {
-        uint32_t t = -howbig;
-        if (t >= howbig) {
-            t -= howbig;
-            if (t >= howbig)
-                t %= howbig;
+    if (l < max) {
+        uint32_t t = -max;
+        if (t >= max) {
+            t -= max;
+            if (t >= max)
+                t %= max;
         }
         while (l < t) {
             x = esp_random();
-            m = uint64_t(x) * uint64_t(howbig);
+            m = uint64_t(x) * uint64_t(max);
             l = uint32_t(m);
         }
     }
     return m >> 32;
 }
 
-inline long random(long howsmall, long howbig) {
-    if (howsmall >= howbig) {
-        return howsmall;
+/**
+ * @brief Get random number from min to max
+ * 
+ * @param min Lower limit of random number
+ * @param max Uper limit of random number
+ * @return long Random number
+ */
+inline long random(long min, long max) {
+    if (min >= max) {
+        return min;
     }
-    long diff = howbig - howsmall;
-    return random(diff) + howsmall;
+    long diff = max - min;
+    return random(diff) + min;
 }
 
+/**
+ * @brief Vrátí náhodné číslo od 0 do maximum
+ * 
+ * @param maximum maximální číslo, které můžu dostat
+ * @return long Náhodné číso
+ */
 inline long nahodne(long maximum) {
     return random(maximum);
 }
 
+/**
+ * @brief Vrátí náhodné číslo od 0 do maximum
+ * 
+ * @param minimum minimální číslo, které můžu dostat
+ * @param maximum maximální číslo, které můžu dostat
+ * @return long Náhodné číso
+ */
 inline long nahodne(long minimum, long maximum) {
     return random(minimum, maximum);
 }
