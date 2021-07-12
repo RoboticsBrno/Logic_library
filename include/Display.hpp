@@ -52,6 +52,50 @@ public:
     ~Display() = default;
 
     /**
+     * @brief Returns width of the display in pixels
+     * @return int width of the display in pixels
+     */
+    int width() const { return m_width; }
+    /**
+     * @brief Returns height of the display in pixels
+     * @return int height of the display in pixels
+     */
+    int height() const { return m_height; }
+
+    /**
+     * @brief Vrací šířku displeje v pixelech.
+     * @return int šířka displeje v pixelech
+     */
+    int sirka() const { return m_width; }
+    /**
+     * @brief Vrací výšku displeje v pixelech.
+     * @return int výška displeje v pixelech.
+     */
+    int vyska() const { return m_height; }
+
+    /**
+     * @brief Returns width of each character in the font used by drawCharacter and drawString.
+     * @return int width of one character in pixels.
+     */
+    int fontWidth() const;
+    /**
+     * @brief Returns height of each character in the font used by drawCharacter and drawString.
+     * @return int height of one character in pixels.
+     */
+    int fontHeight() const;
+
+    /**
+     * @brief Vrátí šířku jednoho znaku z písma použitého v metodách nakresliZnak a nakresliText.
+     * @return int šířka jednoho znaku v pixelech.
+     */
+    int sirkaPisma() const { return fontWidth(); }
+    /**
+     * @brief Vrátí výšku jednoho znaku z písma použitého v metodách nakresliZnak a nakresliText.
+     * @return int výšku jednoho znaku v pixelech.
+     */
+    int vyskaPisma() const { return fontHeight(); }
+
+    /**
      * @brief Returns reference to pixel on that position
      *
      * @param x X coordinate
@@ -314,6 +358,69 @@ public:
      */
     void nakresliCaru(int x1, int y1, int x2, int y2, Rgb barva, int tloustkaCary = 1) {
         drawLine(x1, y1, x2, y2, barva);
+    }
+
+    /**
+     * @brief Draw a single character to the display. The dimensions of the characters can be obtained by calling
+     * fontWidth() and fontHeight().
+     *
+     * @param c which character to draw, from ASCII + ISO-8859-1 codepage.
+     * @param color which color to use
+     * @param offsetX X offset where to start the drawing.
+     * @param offsetY Y offset where to start the drawing.
+     */
+    void drawCharacter(char c, Rgb color, int offsetX = 2, int offsetY = 0);
+
+    /**
+     * @brief Nakreslí jeden znak na displej. Velikost znaků dostanete z metod sirkaPisma() a vyskaPisma().
+     *
+     * @param znak který znak vykreslit, z ASCII + ISO-8859-1 kódové stránky.
+     * @param barva barva znaku
+     * @param posunX o kolik pixelů v X souřadnicích posunout znak doprava.
+     * @param posunY o kolik pixelů v Y souřadnicích posunout znak dolů.
+     */
+    void nakresliZnak(char znak, Rgb barva, int posunX = 2, int posunY = 0) {
+        drawCharacter(znak, barva, posunX, posunY);
+    }
+
+    /**
+     * @brief Draws whole string to the display, handling Czech UTF-8 sequences correctly.
+     *
+     * @param utf8Czech String to draw on the display
+     * @param color which color to use
+     * @param offsetX X offset where to start the drawing. This offsets the whole string, which means you can use negative offset
+     *                to scroll and show the whole string.
+     * @param offsetY Y offset where to start the drawing.
+     * @return int number of separate drawable characters (after UTF-8 decoding).
+     */
+    int drawString(const char* utf8Czech, Rgb color, int offsetX = 2, int offsetY = 0);
+
+    /**
+     * @see Display::drawString
+     */
+    int drawString(const std::string& utf8Czech, Rgb color, int offsetX = 2, int offsetY = 0) {
+        return drawString(utf8Czech.c_str(), color, offsetX, offsetY);
+    }
+
+    /**
+     * @brief Nakreslí na displej textový řetězec, včetně český znaků v UTF-8.
+     *
+     * @param utf8CeskyText řetězec na vykreslení
+     * @param barva barva textu
+     * @param posunX na které X pozici začít kreslit text. Může být záporný, tedy lze využít na implementaci posuvu textu
+     *               a vykreslení celého textu.
+     * @param posunY na které Y pozici kreslit text.
+     * @return int počet dekódovaných vykreslitelných znaků
+     */
+    int nakresliText(const char* utf8CeskyText, Rgb barva, int posunX = 2, int posunY = 0) {
+        return drawString(utf8CeskyText, barva, posunX, posunY);
+    }
+
+    /**
+     * @see Display::nakresliText
+     */
+    int nakresliText(const std::string& utf8CeskyText, Rgb barva, int posunX = 2, int posunY = 0) {
+        return drawString(utf8CeskyText, barva, posunX, posunY);
     }
 
     /**

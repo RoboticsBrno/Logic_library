@@ -1,9 +1,10 @@
-#include "Display.hpp"
-
-#include "Error.hpp"
 #include <driver/gpio.h>
 #include <math.h>
 #include <mutex>
+
+#include "Display.hpp"
+#include "DisplayFont.hpp"
+#include "Error.hpp"
 
 void Display::displayBresenhmCircle(int i_xCenter, int i_yCenter, int i_x, int i_y, Rgb i_color) {
     setColor(i_xCenter + i_x, i_yCenter + i_y, i_color);
@@ -18,6 +19,14 @@ void Display::displayBresenhmCircle(int i_xCenter, int i_yCenter, int i_x, int i
 
 Display::Display()
     : m_displayLeds(LED_WS2812, m_width * m_height, Pins::Display, 0) {
+}
+
+int Display::fontWidth() const {
+    return DisplayFont::DIMENSIONS_X;
+}
+
+int Display::fontHeight() const {
+    return DisplayFont::DIMENSIONS_Y;
 }
 
 Rgb& Display::at(int i_x, int i_y) {
@@ -123,6 +132,45 @@ void Display::drawLine(int x1, int y1, int x2, int y2, Rgb color, int strokeWidt
             }
         }
     }
+}
+
+void Display::drawCharacter(char c, Rgb color, int offsetX, int offsetY) {
+    const auto fontChar = DisplayFont::get(c);
+    for (int y = 0; y < DisplayFont::DIMENSIONS_Y; ++y) {
+        for (int x = 0; x < DisplayFont::DIMENSIONS_X; ++x) {
+            if (fontChar(x, y)) {
+                setColor(x + offsetX, y + offsetY, color);
+            }
+        }
+    }
+}
+
+int Display::drawString(const char* utf8Czech, Rgb color, int offsetX, int offsetY) {
+    const int paddedCharW = DisplayFont::DIMENSIONS_X + 1;
+
+    int drawnCounter = 0;
+    for (const char* c = utf8Czech; *c; ++c) {
+        uint8_t displayChar = *c;
+        if (displayChar > 128) {
+            displayChar = DisplayFont::utf8toCp(c);
+            while (((uint8_t)*c) > 128)
+                ++c;
+            --c;
+        }
+
+        const int drawOffX = offsetX;
+        offsetX += paddedCharW;
+        ++drawnCounter;
+
+        if (drawOffX <= -((int)DisplayFont::DIMENSIONS_X) || drawOffX >= m_width) {
+            continue;
+        }
+
+        if (displayChar != 0) {
+            drawCharacter(displayChar, color, drawOffX, offsetY);
+        }
+    }
+    return drawnCounter;
 }
 
 void Display::show(int i_intensity) {
