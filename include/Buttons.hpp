@@ -328,7 +328,7 @@ public:
         return onChange(funkce, sledovaneTlacitko);
     }
     /*
-        buttons.onPress([](std::bitset<MaxID> aktualniStav, std::bitset<MaxID> zmena) {
+        buttons.priStisku([](std::bitset<MaxID> aktualniStav, std::bitset<MaxID> zmena) {
             std::cout << "Nějaké tlačítko bylo zmáčknuto. ";
 
             if (zmena[Right] == 1) {
@@ -338,7 +338,7 @@ public:
             }
         });
 
-        buttons.onPress([](std::bitset<MaxID> aktualniStav) {
+        buttons.priStisku([](std::bitset<MaxID> aktualniStav) {
             std::cout << "Nějaké tlačítko bylo zmáčknuto. ";
 
             std::cout << "Tlačítka ";
@@ -352,11 +352,11 @@ public:
             std::cout << "jsou nyní zmáčknutá." << std::endl;
         });
 
-        buttons.onPress([]() {
+        buttons.priStisku([]() {
             std::cout << "Tlačítko bylo Zmáčknuto. Není k dispozici více informací." << std::endl;
         });
 
-        buttons.onPress([]() {
+        buttons.priStisku([]() {
             std::cout << "Tohle uvidíte pouze pokud zmáčknete tlačítko Vlevo." << std::endl;
         }, Left);
     */

@@ -110,7 +110,7 @@ inline long nahodne(long maximum) {
 }
 
 /**
- * @brief Vrátí náhodné číslo od 0 do maximum
+ * @brief Vrátí náhodné číslo od minima do maximum
  * 
  * @param minimum minimální číslo, které můžu dostat
  * @param maximum maximální číslo, které můžu dostat
