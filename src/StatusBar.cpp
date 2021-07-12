@@ -12,7 +12,7 @@ StatusBar::StatusBar(Rgb color, int count, int i_channel)
 void StatusBar::setState(int state) {
     checkRange(state, 0, s_count, m_tag);
     m_state = state;
-    for (int i = 0; i <= state; i++)
+    for (int i = 0; i < state; i++)
         m_frame[i] = m_color;
 }
 
