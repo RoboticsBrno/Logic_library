@@ -31,7 +31,7 @@ void StatusBar::setColor(Rgb color) {
 void StatusBar::show(int i_intensity) {
     checkRange(i_intensity, 0, 255, m_tag);
     std::scoped_lock l(m_mutex);
-    for (int i = 0; i < s_count; i++){
+    for (int i = 0; i < s_count; i++) {
         m_statusLeds[i] = m_frame[i];
         if (i_intensity != 255)
             m_statusLeds[i].stretchChannelsEvenly(i_intensity);
@@ -41,7 +41,7 @@ void StatusBar::show(int i_intensity) {
 }
 
 void StatusBar::clear() {
-    for (int i = 0; i <= m_state; i++)
+    for (int i = 0; i < m_state; i++)
         m_frame[i] = Rgb(0, 0, 0);
 }
 
