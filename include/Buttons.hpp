@@ -15,6 +15,7 @@ extern xQueueHandle eventQueue;
 
 class Buttons {
     friend class Logic;
+
 public:
     using CallbackList = eventpp::CallbackList<void(std::bitset<MaxID> currentState, std::bitset<MaxID> changedBtns)>;
 
@@ -137,10 +138,10 @@ public:
             }
         });
     }
-    Buttons::CallbackList::Handle Buttons::onNextChanges(Buttons::CallbackList::Callback function, int count) {
+    Buttons::CallbackList::Handle onNextChanges(Buttons::CallbackList::Callback function, int count) {
         return eventpp::counterRemover(m_callbackListButtons).append(function, count);
     }
-    Buttons::CallbackList::Handle Buttons::onNextChange(Buttons::CallbackList::Callback function) {
+    Buttons::CallbackList::Handle onNextChange(Buttons::CallbackList::Callback function) {
         return onNextChanges(function, 1);
     }
     CallbackList::Handle onNextChanges(std::function<void(bool isPressed)> function, ButtonID watchedButton, int count) {
@@ -149,7 +150,8 @@ public:
             if (changedBtns[watchedButton]) {
                 function(currentState[watchedButton]);
             }
-        }, count);
+        },
+            count);
     }
     CallbackList::Handle onNextChange(std::function<void(bool isPressed)> function, ButtonID watchedButton) {
         checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
@@ -230,7 +232,8 @@ public:
             if (currentState[watchedButton] && changed[watchedButton]) {
                 function();
             }
-        }, count);
+        },
+            count);
     }
 
     CallbackList::Handle onNextPress(std::function<void()> function, ButtonID watchedButton) {
@@ -312,7 +315,8 @@ public:
             if (!currentState[watchedButton] && changed[watchedButton]) {
                 function();
             }
-        }, count);
+        },
+            count);
     }
 
     CallbackList::Handle onNexRelease(std::function<void()> function, ButtonID watchedButton) {

@@ -442,3 +442,24 @@ public:
 };
 
 using Displej = Display;
+
+static const Rgb Black(0, 0, 0);
+static const Rgb White(255, 255, 255);
+static const Rgb Red(255, 0, 0);
+static const Rgb Green(0, 255, 0);
+static const Rgb Blue(0, 0, 255);
+static const Rgb Yellow(255, 255, 0);
+static const Rgb Cyan(0, 255, 255);
+static const Rgb Magenta(255, 0, 255);
+static const Rgb Purple(128, 0, 128);
+static const Rgb Pink(255, 30, 150);
+
+static const Rgb Cerna(0, 0, 0);
+static const Rgb Bila(255, 255, 255);
+static const Rgb Cervena(255, 0, 0);
+static const Rgb Zelena(0, 255, 0);
+static const Rgb Modra(0, 0, 255);
+static const Rgb Zluta(255, 255, 0);
+static const Rgb Azurova(0, 255, 255);
+static const Rgb Fialova(255, 0, 255);
+static const Rgb Ruzova(255, 30, 150);
