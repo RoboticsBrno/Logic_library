@@ -6,6 +6,7 @@
 #include <bitset>
 #include <driver/gpio.h>
 #include <eventpp/callbacklist.h>
+#include <eventpp/utilities/conditionalremover.h>
 #include <eventpp/utilities/counterremover.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
@@ -161,6 +162,10 @@ public:
             }
         });
     }
+    template<typename Condition>
+    Buttons::CallbackList::Handle onChangeUntil(Buttons::CallbackList::Callback function, Condition condition) {
+        return eventpp::conditionalRemover<Condition>(m_callbackListButtons).append(function, condition);
+    }
 
     /*
         buttons.onPress([](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
@@ -245,6 +250,15 @@ public:
         });
     }
 
+    template<typename Condition>
+    Buttons::CallbackList::Handle onPressUntil(std::function<void()> function, Condition condition, ButtonID watchedButton) {
+        checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
+        return onChangeUntil<Condition>([=](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
+            if (currentState[watchedButton] && changed[watchedButton]) {
+                function();
+            }
+        }, condition);
+    }
     /*
         buttons.onRelease([](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
             std::cout << "A button has been released. ";
@@ -326,6 +340,16 @@ public:
                 function();
             }
         });
+    }
+
+    template<typename Condition>
+    Buttons::CallbackList::Handle onReleaseUntil(std::function<void()> function, Condition condition, ButtonID watchedButton) {
+        checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
+        return onChangeUntil<Condition>([=](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
+            if (!currentState[watchedButton] && changed[watchedButton]) {
+                function();
+            }
+        }, condition);
     }
     /*
         buttons.priZmene([](std::bitset<MaxID> aktualniStav, std::bitset<MaxID> zmenenaTlacitka) {
