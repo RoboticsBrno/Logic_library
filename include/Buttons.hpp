@@ -14,6 +14,7 @@ extern xQueueHandle eventQueue;
 
 class Buttons {
     friend class Logic;
+public:
     using CallbackList = eventpp::CallbackList<void(std::bitset<MaxID> currentState, std::bitset<MaxID> changedBtns)>;
 
 private:
@@ -36,6 +37,8 @@ public:
     static bool IRAM_ATTR read(gpio_num_t);
     static bool IRAM_ATTR read(ButtonID);
     static std::bitset<MaxID> IRAM_ATTR readAll();
+
+    CallbackList& callbackList() { return m_callbackListButtons; }
 
     static bool IRAM_ATTR precti(gpio_num_t cisloPinu) {
         return read(cisloPinu);
