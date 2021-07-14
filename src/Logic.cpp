@@ -65,11 +65,15 @@ extern void logicMain();
 extern "C" {
 [[gnu::weak]] void app_main() {
     logic.init();
+
+    // The SmartLeds Interrupt handler must be registered on different core than
+    // the WiFi Interrupts are, otherwise SmartLeds can't feed RMT fast enough.
+    // We can't feasibly change SmartLeds's core because it is initialized
+    // via global constructors, but WiFi core is set to 1 via sdkconfig.* files.
+    // CONFIG_ESP32_WIFI_TASK_PINNED_TO_CORE_1
     logic.turnOnLeds();
 
-    std::thread logicMainThread(logicMain);
-
-    logicMainThread.join();
+    logicMain();
 
     while (true)
         vTaskDelay(1000 / portTICK_PERIOD_MS);
