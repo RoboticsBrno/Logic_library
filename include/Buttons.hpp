@@ -6,6 +6,7 @@
 #include <bitset>
 #include <driver/gpio.h>
 #include <eventpp/callbacklist.h>
+#include <eventpp/utilities/counterremover.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
 #include <soc/gpio_periph.h>
@@ -136,6 +137,28 @@ public:
             }
         });
     }
+    Buttons::CallbackList::Handle Buttons::onNextChanges(Buttons::CallbackList::Callback function, int count) {
+        return eventpp::counterRemover(m_callbackListButtons).append(function, count);
+    }
+    Buttons::CallbackList::Handle Buttons::onNextChange(Buttons::CallbackList::Callback function) {
+        return onNextChanges(function, 1);
+    }
+    CallbackList::Handle onNextChanges(std::function<void(bool isPressed)> function, ButtonID watchedButton, int count) {
+        checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
+        return onNextChanges([=](std::bitset<MaxID> currentState, std::bitset<MaxID> changedBtns) {
+            if (changedBtns[watchedButton]) {
+                function(currentState[watchedButton]);
+            }
+        }, count);
+    }
+    CallbackList::Handle onNextChange(std::function<void(bool isPressed)> function, ButtonID watchedButton) {
+        checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
+        return onNextChange([=](std::bitset<MaxID> currentState, std::bitset<MaxID> changedBtns) {
+            if (changedBtns[watchedButton]) {
+                function(currentState[watchedButton]);
+            }
+        });
+    }
 
     /*
         buttons.onPress([](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
@@ -201,6 +224,23 @@ public:
             }
         });
     }
+    CallbackList::Handle onNextPresses(std::function<void()> function, ButtonID watchedButton, int count) {
+        checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
+        return onNextChanges([=](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
+            if (currentState[watchedButton] && changed[watchedButton]) {
+                function();
+            }
+        }, count);
+    }
+
+    CallbackList::Handle onNextPress(std::function<void()> function, ButtonID watchedButton) {
+        checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
+        return onNextChange([=](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
+            if (currentState[watchedButton] && changed[watchedButton]) {
+                function();
+            }
+        });
+    }
 
     /*
         buttons.onRelease([](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
@@ -261,6 +301,23 @@ public:
     CallbackList::Handle onRelease(std::function<void()> function, ButtonID watchedButton) {
         checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
         return onChange([=](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
+            if (!currentState[watchedButton] && changed[watchedButton]) {
+                function();
+            }
+        });
+    }
+    CallbackList::Handle onNextReleases(std::function<void()> function, ButtonID watchedButton, int count) {
+        checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
+        return onNextChanges([=](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
+            if (!currentState[watchedButton] && changed[watchedButton]) {
+                function();
+            }
+        }, count);
+    }
+
+    CallbackList::Handle onNexRelease(std::function<void()> function, ButtonID watchedButton) {
+        checkRange(watchedButton, 0, ButtonID::MaxID - 1, m_tag);
+        return onNextChange([=](std::bitset<MaxID> currentState, std::bitset<MaxID> changed) {
             if (!currentState[watchedButton] && changed[watchedButton]) {
                 function();
             }
