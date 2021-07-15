@@ -3,6 +3,7 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 #include <stdint.h>
+#include <string>
 
 /**
  * @brief Wait for specified amount of milliseconds
@@ -60,7 +61,7 @@ inline float vteriny() {
 
 /**
  * @brief Get random number from 0 to max
- * 
+ *
  * @param max Uper limit of random number
  * @return long Random number
  */
@@ -86,7 +87,7 @@ inline long random(long max) {
 
 /**
  * @brief Get random number from min to max
- * 
+ *
  * @param min Lower limit of random number
  * @param max Uper limit of random number
  * @return long Random number
@@ -101,7 +102,7 @@ inline long random(long min, long max) {
 
 /**
  * @brief Vrátí náhodné číslo od 0 do maximum
- * 
+ *
  * @param maximum maximální číslo, které můžu dostat
  * @return long Náhodné číso
  */
@@ -111,7 +112,7 @@ inline long nahodne(long maximum) {
 
 /**
  * @brief Vrátí náhodné číslo od minima do maximum
- * 
+ *
  * @param minimum minimální číslo, které můžu dostat
  * @param maximum maximální číslo, které můžu dostat
  * @return long Náhodné číso
@@ -119,3 +120,20 @@ inline long nahodne(long maximum) {
 inline long nahodne(long minimum, long maximum) {
     return random(minimum, maximum);
 }
+
+/**
+ * @brief Saves an integer into the persisent NVS storage.
+ *
+ * @param name name of the value
+ * @param value
+ */
+void saveInt(const std::string& name, int value);
+
+/**
+ * @brief Loads an integer from the persistent NVS storage.
+ *
+ * @param name name of the value
+ * @param defaultVal default value returned when the name does not exist
+ * @return int
+ */
+int loadInt(const std::string& name, int defaultVal = 0);

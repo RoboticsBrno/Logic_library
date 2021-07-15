@@ -4,6 +4,7 @@
 #include "Buttons.hpp"
 #include "Buzzer.hpp"
 #include "Display.hpp"
+#include "Nvs.hpp"
 #include "Pinout.hpp"
 #include "StatusBar.hpp"
 #include <bitset>
@@ -42,6 +43,7 @@ public:
     StatusBar& statusBar();
     Buttons& buttons();
     Buzzer& buzzer();
+    Nvs& nvs();
 };
 
 void logicMain();

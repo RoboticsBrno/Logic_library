@@ -54,6 +54,11 @@ Buzzer& Logic::buzzer() {
     return m_buzzer;
 }
 
+Nvs& Logic::nvs() {
+    static Nvs instance("LogicLib");
+    return instance;
+}
+
 Logic& logic = Logic::singleton();
 Display& display = logic.display();
 StatusBar& statusBar = logic.statusBar();
