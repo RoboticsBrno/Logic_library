@@ -12,7 +12,7 @@ using namespace rb;
 // posílají zprávy mezi sebou.
 static const uint16_t SERVER_PORT = 15000;
 
-static const std::string SERVER_IP = "192.168.1.112";
+static const std::string SERVER_IP = "192.168.1.132";
 
 static const uint16_t myId = random(0, UINT16_MAX);
 

@@ -14,8 +14,7 @@ class EchoServer:
         self.writers: List[asyncio.StreamWriter] = []
 
     async def serve(self) -> None:
-        server = await asyncio.start_server(self.new_connection, '0.0.0.0', self.port)
-        await server.serve_forever()
+        await asyncio.start_server(self.new_connection, '0.0.0.0', self.port)
 
     async def broadcast(self, data, exceptWriter) -> None:
         async with self.lock:
