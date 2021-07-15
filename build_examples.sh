@@ -14,3 +14,7 @@ for d in $(find examples -maxdepth 1 -mindepth 1 -type d); do
     cd "$base"
     echo "::endgroup::"
 done
+
+if $failed; then
+    exit 1
+fi
