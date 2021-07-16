@@ -1,39 +1,36 @@
 {
-    "name": "Logic_library",
-    "keywords": "LED, esp32",
-    "description": "Library for Logic board designed by Renata Zemanová.",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/RoboticsBrno/Logic_library"
-    },
-    "authors": [
-        {
-            "name": "Tomáš Rohlínek",
-            "email": "tomas.rohlinek@outlook.cz",
-            "url": "http://www.robotikabrno.cz",
-            "maintainer": true
-        }
-    ],
-    "version": "0.0.1",
-    "frameworks": [
-        "arduino",
-        "espidf"
-    ],
-    "platforms": "espressif32",
-    "license": "MIT",
-    "dependencies": [
-        {
-            "owner": "roboticsbrno",
-            "name": "SmartLeds",
-            "version": "http://git.rb/SmartLeds.git"
-        },
-        {
-            "name": "eventpp",
-            "version": "http://git.rb/envetpp.git"
-        }
-    ],
-    "build": {
-        "flags": "-std=c++17 -std=gnu++17",
-        "unflags": "-std=gnu++11"
+  "name": "Logic_library",
+  "keywords": "LED, esp32",
+  "description": "Library for Logic board designed by Renata Zemanová.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RoboticsBrno/Logic_library"
+  },
+  "authors": [
+    {
+      "name": "Tomáš Rohlínek",
+      "email": "tomas.rohlinek@outlook.cz",
+      "url": "http://www.robotikabrno.cz",
+      "maintainer": true
     }
+  ],
+  "version": "1.0.0",
+  "frameworks": ["arduino", "espidf"],
+  "platforms": "espressif32",
+  "license": "MIT",
+  "dependencies": [
+    {
+      "owner": "roboticsbrno",
+      "name": "SmartLeds",
+      "version": "http://git.rb/SmartLeds.git"
+    },
+    {
+      "name": "eventpp",
+      "version": "http://git.rb/envetpp.git"
+    }
+  ],
+  "build": {
+    "flags": "-std=c++17 -std=gnu++17",
+    "unflags": "-std=gnu++11"
+  }
 }
