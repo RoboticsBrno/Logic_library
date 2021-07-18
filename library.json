@@ -22,15 +22,15 @@
     {
       "owner": "roboticsbrno",
       "name": "SmartLeds",
-      "version": "http://git.rb/SmartLeds.git"
+      "version": "https://github.com/RoboticsBrno/SmartLeds/archive/048b25093a6a8ceb955e8e47ba5a197e3d7f8581.zip"
     },
     {
       "name": "eventpp",
-      "version": "http://git.rb/envetpp.git"
+      "version": "https://github.com/haberturdeur/eventpp/archive/f83915b23787442b2747b234b3bfd5774cd19f7d.zip"
     }
   ],
   "build": {
-    "flags": "-std=c++17 -std=gnu++17",
+    "flags": "-std=gnu++17",
     "unflags": "-std=gnu++11"
   }
 }
