@@ -31,11 +31,11 @@ void Logic::init() {
 }
 
 void Logic::turnOnLeds() {
-    gpio_set_level(Pins::LedPower, 1);
+    gpio_set_level(Pins::LedPower, Pins::InvertLedPower ? 0 : 1);
 }
 
 void Logic::turnOffLeds() {
-    gpio_set_level(Pins::LedPower, 0);
+    gpio_set_level(Pins::LedPower, Pins::InvertLedPower ? 1 : 0);
 }
 
 StatusBar& Logic::statusBar() {
