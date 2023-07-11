@@ -15,12 +15,19 @@ enum ButtonID {
     R_Left,
     R_Right,
     MaxID,
+
+    // Shadow ids for backwards compatibility with 1.x examples
+    Enter [[deprecated]] = 0,
+    Up [[deprecated]] = 1,
+    Down [[deprecated]] = 2,
+    Left [[deprecated]] = 3,
+    Right [[deprecated]] = 4,
 };
 
 namespace Platform {
 
 static constexpr bool AdjustableBuzzer = true;
-static constexpr bool LedPowerOnLevel = 0;
+static constexpr bool LedPowerOnLevel = 1;
 
 namespace Pins {
 
@@ -53,7 +60,7 @@ static constexpr std::array<gpio_num_t, MaxID> Buttons = {
     LeftArrows::Down,
     LeftArrows::Left,
     LeftArrows::Right,
-    
+
     RightArrows::Enter,
     RightArrows::Up,
     RightArrows::Down,

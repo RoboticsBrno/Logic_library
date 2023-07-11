@@ -6,6 +6,18 @@ static const int DISPLAY_INTENSITY = 20;
 
 static const float DEFAULT_BALL_SPEED = 0.4;
 
+#if defined(LOGIC_VERSION_1_1) || defined(LOGIC_VERSION_1_2)
+static const auto BtnTopLeft = LeftUp;
+static const auto BtnTopRight = RightUp;
+static const auto BtnBottomLeft = LeftDown;
+static const auto BtnBottomRight = RightDown;
+#else
+static const auto BtnTopLeft = L_Left;
+static const auto BtnTopRight = L_Right;
+static const auto BtnBottomLeft = R_Left;
+static const auto BtnBottomRight = R_Right;
+#endif
+
 static const Rgb COLOR_BALL(0, 255, 0);
 static const Rgb COLOR_TOP(255, 0, 0);
 static const Rgb COLOR_BOTTOM(0, 0, 255);
@@ -60,16 +72,16 @@ static void handleVictory() {
 
 static void handleButtons() {
     const auto pressedBtns = buttons.readAll();
-    if (pressedBtns[LeftDown] && gPaddleBottom.x > 0) {
+    if (pressedBtns[BtnBottomLeft] && gPaddleBottom.x > 0) {
         --gPaddleBottom.x;
-    } else if (pressedBtns[RightDown] && gPaddleBottom.x < display.width() - gPaddleBottom.w) {
+    } else if (pressedBtns[BtnBottomRight] && gPaddleBottom.x < display.width() - gPaddleBottom.w) {
         ++gPaddleBottom.x;
     }
 
-    if (pressedBtns[LeftUp] && gPaddleTop.x > 0) {
+    if (pressedBtns[BtnTopLeft] && gPaddleTop.x > 0) {
         gAiDisabled = true;
         --gPaddleTop.x;
-    } else if (pressedBtns[RightUp] && gPaddleTop.x < display.width() - gPaddleTop.w) {
+    } else if (pressedBtns[BtnTopRight] && gPaddleTop.x < display.width() - gPaddleTop.w) {
         gAiDisabled = true;
         ++gPaddleTop.x;
     }
