@@ -4,6 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         environment: 
           - logic_1_1
@@ -26,7 +27,7 @@ jobs:
           - sachovnice
           - snake_01_dot_move
           - snake_01_dot_move_infin
-          - snake_02_dot_change_direction
+          - snake_02_change_direction
           - snake_03_tail
           - statusBar
     steps:
