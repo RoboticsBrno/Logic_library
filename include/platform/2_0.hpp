@@ -17,6 +17,11 @@ enum ButtonID {
     MaxID,
 };
 
+namespace Platform {
+
+static constexpr bool AdjustableBuzzer = true;
+static constexpr bool LedPowerOnLevel = 0;
+
 namespace Pins {
 
 namespace LeftArrows {
@@ -38,23 +43,24 @@ static constexpr gpio_num_t Enter = GPIO_NUM_9;
 static constexpr gpio_num_t Display = GPIO_NUM_45;
 static constexpr gpio_num_t Status = GPIO_NUM_46;
 
-static constexpr gpio_num_t Buzzer = GPIO_NUM_27;
-static constexpr bool GeneratorBuzzer = false;
+static constexpr gpio_num_t Buzzer = GPIO_NUM_21;
 
 static constexpr gpio_num_t LedPower = GPIO_NUM_0;
-static constexpr bool InvertLedPower = true;
 
 static constexpr std::array<gpio_num_t, MaxID> Buttons = {
-    Pins::LeftArrows::Enter,
-    Pins::LeftArrows::Up,
-    Pins::LeftArrows::Down,
-    Pins::LeftArrows::Left,
-    Pins::LeftArrows::Right,
+    LeftArrows::Enter,
+    LeftArrows::Up,
+    LeftArrows::Down,
+    LeftArrows::Left,
+    LeftArrows::Right,
     
-    Pins::RightArrows::Enter,
-    Pins::RightArrows::Up,
-    Pins::RightArrows::Down,
-    Pins::RightArrows::Left,
-    Pins::RightArrows::Right,
+    RightArrows::Enter,
+    RightArrows::Up,
+    RightArrows::Down,
+    RightArrows::Left,
+    RightArrows::Right,
 };
+
 } // namespace Pins
+
+} // namespace Platform

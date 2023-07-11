@@ -1,5 +1,5 @@
 #include "Logic.hpp"
-#include "Pinout.hpp"
+#include "Platform.hpp"
 
 #include <bitset>
 #include <eventpp/callbacklist.h>
@@ -20,7 +20,7 @@ Logic& IRAM_ATTR Logic::singleton() {
 
 void Logic::init() {
     gpio_config_t configData = {
-        .pin_bit_mask = 1ULL << Pins::LedPower,
+        .pin_bit_mask = 1ULL << Platform::Pins::LedPower,
         .mode = GPIO_MODE_OUTPUT,
         .pull_up_en = GPIO_PULLUP_DISABLE,
         .pull_down_en = GPIO_PULLDOWN_DISABLE,
@@ -31,11 +31,11 @@ void Logic::init() {
 }
 
 void Logic::turnOnLeds() {
-    gpio_set_level(Pins::LedPower, Pins::InvertLedPower ? 0 : 1);
+    gpio_set_level(Platform::Pins::LedPower, Platform::LedPowerOnLevel);
 }
 
 void Logic::turnOffLeds() {
-    gpio_set_level(Pins::LedPower, Pins::InvertLedPower ? 1 : 0);
+    gpio_set_level(Platform::Pins::LedPower, !Platform::LedPowerOnLevel);
 }
 
 StatusBar& Logic::statusBar() {

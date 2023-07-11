@@ -18,7 +18,7 @@ void Display::displayBresenhmCircle(int i_xCenter, int i_yCenter, int i_x, int i
 }
 
 Display::Display()
-    : m_displayLeds(LED_WS2812, m_width * m_height, Pins::Display, 0) {
+    : m_displayLeds(LED_WS2812, m_width * m_height, Platform::Pins::Display, 0) {
 }
 
 int Display::fontWidth() const {

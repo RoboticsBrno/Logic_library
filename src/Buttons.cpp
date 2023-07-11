@@ -1,7 +1,7 @@
 #include "Buttons.hpp"
 
 #include "Logic.hpp"
-#include "Pinout.hpp"
+#include "Platform.hpp"
 #include <driver/gpio.h>
 #include <freertos/FreeRTOS.h>
 #include <freertos/queue.h>
@@ -21,7 +21,7 @@ bool IRAM_ATTR Buttons::read(gpio_num_t gpio) {
 
 bool IRAM_ATTR Buttons::read(ButtonID id) {
     checkRange(id, 0, ButtonID::MaxID - 1, m_tag);
-    return read(Pins::Buttons[id]);
+    return read(Platform::Pins::Buttons[id]);
 }
 
 std::bitset<MaxID> IRAM_ATTR Buttons::readAll() {
@@ -40,7 +40,7 @@ void Buttons::init() {
         .intr_type = GPIO_INTR_ANYEDGE,
     };
 
-    for (const auto i : Pins::Buttons)
+    for (const auto i : Platform::Pins::Buttons)
         config.pin_bit_mask |= (1ULL << i);
 
     gpio_config(&config);
@@ -49,7 +49,7 @@ void Buttons::init() {
     xTaskCreate(callbacksTask, "logicBtnCb", 4096, this, 5, nullptr);
 
     gpio_install_isr_service(0);
-    for (const auto i : Pins::Buttons)
+    for (const auto i : Platform::Pins::Buttons)
         gpio_isr_handler_add(i, isrHandler, this);
 }
 

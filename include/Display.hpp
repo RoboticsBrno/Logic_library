@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Pinout.hpp"
+#include "Platform.hpp"
 #include <SmartLeds.h>
 #include <mutex>
 

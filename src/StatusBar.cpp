@@ -1,12 +1,12 @@
 #include "StatusBar.hpp"
 
 #include "Error.hpp"
-#include "Pinout.hpp"
+#include "Platform.hpp"
 #include <SmartLeds.h>
 #include <mutex>
 
 StatusBar::StatusBar(Rgb color, int count, int i_channel)
-    : m_statusLeds(LED_WS2812, count, Pins::Status, i_channel) {
+    : m_statusLeds(LED_WS2812, count, Platform::Pins::Status, i_channel) {
 }
 
 void StatusBar::setState(int state) {

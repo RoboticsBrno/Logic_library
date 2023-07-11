@@ -5,7 +5,7 @@
 #include "Buzzer.hpp"
 #include "Display.hpp"
 #include "Nvs.hpp"
-#include "Pinout.hpp"
+#include "Platform.hpp"
 #include "StatusBar.hpp"
 #include <bitset>
 #include <eventpp/callbacklist.h>

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Error.hpp"
-#include "Pinout.hpp"
+#include "Platform.hpp"
 #include <array>
 #include <bitset>
 #include <driver/gpio.h>
