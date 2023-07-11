@@ -23,7 +23,7 @@ jobs:
           - graphics_02_fire
           - graphics_03_knight_rider
           - network-room
-          - rbcontoller-basic
+          - rbcontroller-basic
           - sachovnice
           - snake_01_dot_move
           - snake_01_dot_move_infin
