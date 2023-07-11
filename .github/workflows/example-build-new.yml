@@ -45,7 +45,7 @@ jobs:
         run: pip install --upgrade platformio
 
       - name: Build PlatformIO examples
-        run: pio ci -e ${{ matrix.environment }} -l"." -c examples/${{ matrix.example }}/platformio.ini
+        run: pio ci -e ${{ matrix.environment }} -l"." -c examples/${{ matrix.example }}/platformio.ini -O "board_build.partitions = examples/${{ matrix.example }}/partitions.csv"
         env:
           PLATFORMIO_CI_SRC: examples/${{ matrix.example }}/src
           PLATFORMIO_BUILD_FLAGS: -Iexamples/${{ matrix.example }}/include
