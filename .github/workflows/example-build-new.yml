@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         environment: 
           - logic_1_1
@@ -45,7 +45,7 @@ jobs:
         run: pip install --upgrade platformio
 
       - name: Build PlatformIO examples
-        run: pio ci -e ${{ matrix.environment }} -l"." -c examples/${{ matrix.example }}/platformio.ini -O "board_build.partitions = examples/${{ matrix.example }}/partitions.csv"
+        run: pio ci -e ${{ matrix.environment }} -l"." -c examples/${{ matrix.example }}/platformio.ini -O="board_build.partitions=examples/${{ matrix.example }}/partitions.csv"
         env:
           PLATFORMIO_CI_SRC: examples/${{ matrix.example }}/src
           PLATFORMIO_BUILD_FLAGS: -Iexamples/${{ matrix.example }}/include
