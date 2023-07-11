@@ -29,7 +29,7 @@ void generateFeed() {
             .y = i / 10,
         };
         for (int i = 0; i < snakePos.size(); i++) {
-            check *= !isInSamePlace(snakePos[i], pos);
+            check = check && !isInSamePlace(snakePos[i], pos);
             if (!check)
                 break;
         }

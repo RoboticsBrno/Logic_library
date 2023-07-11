@@ -22,11 +22,11 @@
     {
       "owner": "roboticsbrno",
       "name": "SmartLeds",
-      "version": "https://github.com/RoboticsBrno/SmartLeds/archive/048b25093a6a8ceb955e8e47ba5a197e3d7f8581.zip"
+      "version": "https://github.com/RoboticsBrno/SmartLeds/archive/refs/tags/v3.1.2.zip"
     },
     {
       "name": "eventpp",
-      "version": "https://github.com/haberturdeur/eventpp/archive/f83915b23787442b2747b234b3bfd5774cd19f7d.zip"
+      "version": "https://github.com/haberturdeur/eventpp/archive/3ac9a4e196a116cd8a428b00d8dc02bd723e4fd4.zip"
     }
   ],
   "build": {

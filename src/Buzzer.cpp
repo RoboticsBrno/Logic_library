@@ -34,8 +34,11 @@ Buzzer::Buzzer() {
 }
 
 void Buzzer::setFrequency(std::uint32_t frequency) {
+    if (!Platform::AdjustableBuzzer) {
+        return;
+    }
+
     std::lock_guard lock(m_mutex);
-    static_assert(Platform::AdjustableBuzzer, "This revision of the board does not allow to set frequency of buzzer.");
 
     ledc_set_freq(LEDC_LOW_SPEED_MODE, LEDC_TIMER_0, frequency);
 
@@ -57,8 +60,9 @@ void Buzzer::on() {
 }
 
 void Buzzer::on(std::uint32_t frequency) {
-    static_assert(Platform::AdjustableBuzzer, "Tato revize desky neumožňuje nastavit frekvenci bzučáku.");
-    setFrequency(frequency);
+    if (Platform::AdjustableBuzzer) {
+        setFrequency(frequency);
+    }
     on();
 }
 
@@ -82,7 +86,6 @@ void Buzzer::zapnout() {
 }
 
 void Buzzer::zapnout(std::uint32_t frekvence) {
-    static_assert(Platform::AdjustableBuzzer, "Tato revize desky neumožňuje nastavit frekvenci bzučáku.");
     on(frekvence);
 }
 
@@ -91,6 +94,5 @@ void Buzzer::vypnout() {
 }
 
 void Buzzer::nastavitFrekvenci(std::uint32_t frekvence) {
-    static_assert(Platform::AdjustableBuzzer, "Tato revize desky neumožňuje nastavit frekvenci bzučáku.");
     setFrequency(frekvence);
 }
