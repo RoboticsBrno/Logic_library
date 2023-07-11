@@ -12,7 +12,7 @@
 #include <freertos/queue.h>
 #include <soc/gpio_periph.h>
 
-extern xQueueHandle eventQueue;
+extern QueueHandle_t eventQueue;
 
 class Buttons {
     friend class Logic;
@@ -24,7 +24,7 @@ private:
     static constexpr const char* const m_tag = "Buttons";
 
     CallbackList m_callbackListButtons;
-    xQueueHandle m_eventQueue;
+    QueueHandle_t m_eventQueue;
 
     static void callbacksTask(void* selfVoid);
 

@@ -51,3 +51,5 @@ doc/html
 
 main.cpp
 .DS_Store
+
+.pio

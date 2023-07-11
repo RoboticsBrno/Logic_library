@@ -13,8 +13,8 @@ public:
     Nvs(const Nvs&) = delete;
 
     bool existsInt(const char* key);
-    int getInt(const char* key);
-    void writeInt(const char* key, int value);
+    std::int32_t getInt(const char* key);
+    void writeInt(const char* key, std::int32_t value);
 
     bool existsString(const char* key);
     std::string getString(const char* key);

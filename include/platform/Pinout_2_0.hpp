@@ -19,18 +19,21 @@ enum ButtonID {
 
 namespace Pins {
 
-namespace Arrows {
-static constexpr gpio_num_t L_Up = GPIO_NUM_47;
-static constexpr gpio_num_t L_Down = GPIO_NUM_7;
-static constexpr gpio_num_t L_Left = GPIO_NUM_1;
-static constexpr gpio_num_t L_Right = GPIO_NUM_6;
-static constexpr gpio_num_t L_Enter = GPIO_NUM_5;
-static constexpr gpio_num_t R_Up = GPIO_NUM_8;
-static constexpr gpio_num_t R_Down = GPIO_NUM_14;
-static constexpr gpio_num_t R_Left = GPIO_NUM_10;
-static constexpr gpio_num_t R_Right = GPIO_NUM_4;
-static constexpr gpio_num_t R_Enter = GPIO_NUM_9;
-} // namespace Arrows
+namespace LeftArrows {
+static constexpr gpio_num_t Up = GPIO_NUM_47;
+static constexpr gpio_num_t Down = GPIO_NUM_7;
+static constexpr gpio_num_t Left = GPIO_NUM_1;
+static constexpr gpio_num_t Right = GPIO_NUM_6;
+static constexpr gpio_num_t Enter = GPIO_NUM_5;
+} // namespace LeftArrows
+
+namespace RightArrows {
+static constexpr gpio_num_t Up = GPIO_NUM_8;
+static constexpr gpio_num_t Down = GPIO_NUM_14;
+static constexpr gpio_num_t Left = GPIO_NUM_10;
+static constexpr gpio_num_t Right = GPIO_NUM_4;
+static constexpr gpio_num_t Enter = GPIO_NUM_9;
+} // namespace RightArrows
 
 static constexpr gpio_num_t Display = GPIO_NUM_45;
 static constexpr gpio_num_t Status = GPIO_NUM_46;
@@ -42,15 +45,16 @@ static constexpr gpio_num_t LedPower = GPIO_NUM_0;
 static constexpr bool InvertLedPower = true;
 
 static constexpr std::array<gpio_num_t, MaxID> Buttons = {
-    Pins::Arrows::L_Enter,
-    Pins::Arrows::L_Up,
-    Pins::Arrows::L_Down,
-    Pins::Arrows::L_Left,
-    Pins::Arrows::L_Right,
-    Pins::Arrows::R_Enter,
-    Pins::Arrows::R_Up,
-    Pins::Arrows::R_Down,
-    Pins::Arrows::R_Left,
-    Pins::Arrows::R_Right,
+    Pins::LeftArrows::Enter,
+    Pins::LeftArrows::Up,
+    Pins::LeftArrows::Down,
+    Pins::LeftArrows::Left,
+    Pins::LeftArrows::Right,
+    
+    Pins::RightArrows::Enter,
+    Pins::RightArrows::Up,
+    Pins::RightArrows::Down,
+    Pins::RightArrows::Left,
+    Pins::RightArrows::Right,
 };
 } // namespace Pins
