@@ -2,6 +2,7 @@
 
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
+#include <esp_random.h>
 #include <stdint.h>
 #include <string>
 

@@ -29,17 +29,17 @@ esp_err_t Nvs::initFlash() {
 }
 
 bool Nvs::existsInt(const char* key) {
-    int value;
+    std::int32_t value;
     return nvs_get_i32(m_handle, key, &value) == ESP_OK;
 }
 
-int Nvs::getInt(const char* key) {
-    int value;
+std::int32_t Nvs::getInt(const char* key) {
+    std::int32_t value;
     ESP_ERROR_CHECK(nvs_get_i32(m_handle, key, &value));
     return value;
 }
 
-void Nvs::writeInt(const char* key, int value) {
+void Nvs::writeInt(const char* key, std::int32_t value) {
     ESP_ERROR_CHECK(nvs_set_i32(m_handle, key, value));
     m_dirty = true;
 }

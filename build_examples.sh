@@ -1,6 +1,12 @@
 #!/bin/sh
 set -eu
 
+# check if at least one argument is passed
+if [ $# -lt 1 ]; then
+    echo "Usage: $0 <environment>"
+    exit 1
+fi
+
 failed=false;
 revision="$(git rev-parse HEAD)"
 
@@ -17,7 +23,7 @@ for d in $(find examples -maxdepth 1 -mindepth 1 -type d); do
     sed -i "s/Logic_library\.git/Logic_library\.git#$revision/g" platformio.ini
     cat platformio.ini
 
-    if ! platformio run -e normal; then
+    if ! platformio run -e $1; then
         echo "::error ::Failed to build $d"
         failed=true;
     else

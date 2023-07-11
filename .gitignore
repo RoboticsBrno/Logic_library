@@ -48,3 +48,8 @@ docs/_build
 docs/api
 docs/doxyoutput
 doc/html
+
+main.cpp
+.DS_Store
+
+.pio
