@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['logic_2ecpp_0',['Logic.cpp',['../Logic_8cpp.html',1,'']]],
-  ['logic_2ehpp_1',['Logic.hpp',['../Logic_8hpp.html',1,'']]]
+  ['display_2ecpp_0',['Display.cpp',['../Display_8cpp.html',1,'']]],
+  ['display_2ehpp_1',['Display.hpp',['../Display_8hpp.html',1,'']]],
+  ['displayfont_2ehpp_2',['DisplayFont.hpp',['../DisplayFont_8hpp.html',1,'']]]
 ];

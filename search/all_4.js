@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['e_0',['E',['../StatusBar_8hpp.html#a808e5cd4979462d3bbe3070d7d147444ab199e021998d49b1f09338d8b9b18ecb',1,'StatusBar.hpp']]],
-  ['enable_5fczech_5ferrors_1',['ENABLE_CZECH_ERRORS',['../Error_8hpp.html#a2116a0cb3193851cd7114da38fe7f573',1,'Error.hpp']]],
-  ['enter_2',['Enter',['../namespacePins_1_1Arrows.html#ab6bebae5f29026d0021ec96dab7b5d57',1,'Pins::Arrows::Enter()'],['../Pinout__1__1_8hpp.html#ad16484ab457d7f9a7741519f4e174818a77368fe980a402bd1d1fcc84429e4cad',1,'Enter():&#160;Pinout_1_1.hpp'],['../namespacePins_1_1Arrows.html#ab6bebae5f29026d0021ec96dab7b5d57',1,'Pins::Arrows::Enter()'],['../Pinout__1__2_8hpp.html#ad16484ab457d7f9a7741519f4e174818a77368fe980a402bd1d1fcc84429e4cad',1,'Enter():&#160;Pinout_1_2.hpp'],['../namespacePins_1_1LeftArrows.html#a59068be0e0590c2051e6ec2f12b436d0',1,'Pins::LeftArrows::Enter()'],['../namespacePins_1_1RightArrows.html#a98b114c969ac78882d04b5673c664807',1,'Pins::RightArrows::Enter()']]],
-  ['error_2ehpp_3',['Error.hpp',['../Error_8hpp.html',1,'']]],
-  ['errorcodes_4',['ErrorCodes',['../Error_8hpp.html#a3878e89dc5c88d823f4f923ef90dbcb3',1,'Error.hpp']]],
-  ['errors_5',['errors',['../Error_8hpp.html#a0c1eeee8aace51797c87436e0c278607',1,'Error.hpp']]],
-  ['errorscs_6',['errorsCs',['../Error_8hpp.html#ae27ec90f9b65ae7ad24a962c41498d36',1,'Error.hpp']]],
-  ['eventqueue_7',['eventQueue',['../Buttons_8hpp.html#a46dcc2f145188d3637b296fe33225f03',1,'Buttons.hpp']]],
-  ['existsint_8',['existsInt',['../classNvs.html#a7dfff961409926aa5b8d61b9320d0e6d',1,'Nvs']]],
-  ['existsstring_9',['existsString',['../classNvs.html#a6566ee4dc1ffa4526345afe88f746b23',1,'Nvs']]]
+  ['c_0',['C',['../StatusBar_8hpp.html#a808e5cd4979462d3bbe3070d7d147444a739ce3f516592d245d16fd8a3893472c',1,'StatusBar.hpp']]],
+  ['callbacklist_1',['CallbackList',['../classButtons.html#a734250227ff5964b59af689888ba3e46',1,'Buttons']]],
+  ['callbacklist_2',['callbackList',['../classButtons.html#a5c13b2fe395820db7350a6de02b172f7',1,'Buttons']]],
+  ['cekejvteriny_3',['cekejVteriny',['../ArduinoLikeUtils_8hpp.html#ae3e7c4e52c59cf3e377d392287f12243',1,'ArduinoLikeUtils.hpp']]],
+  ['cerna_4',['Cerna',['../Display_8hpp.html#a515120d540a0e460aefd0789b572657c',1,'Display.hpp']]],
+  ['cervena_5',['Cervena',['../Display_8hpp.html#a3360343b1436085ea55f180dd270f92d',1,'Display.hpp']]],
+  ['character_6',['Character',['../classDisplayFont_1_1Character.html#a9a6a22b6f1f89e0a10439a8892ec446d',1,'DisplayFont::Character::Character()'],['../classDisplayFont_1_1Character.html',1,'DisplayFont::Character']]],
+  ['checkrange_7',['checkRange',['../Error_8hpp.html#a8f443f9842333892873692aa4319909f',1,'Error.hpp']]],
+  ['clear_8',['clear',['../classDisplay.html#a14242933dd00fc1d50f9ae70d5121d14',1,'Display::clear()'],['../classStatusBar.html#ae119d3bb042846f48ff7f4add3336362',1,'StatusBar::clear()']]],
+  ['color_9',['color',['../classStatusBar.html#a77e740facbbc322619d001447163010a',1,'StatusBar']]],
+  ['commit_10',['commit',['../classNvs.html#ac6d8e89393b9cdc92765e71efecc37d4',1,'Nvs']]],
+  ['cyan_11',['Cyan',['../Display_8hpp.html#abedb4a8d992779db34595a5deec88aed',1,'Display.hpp']]]
 ];

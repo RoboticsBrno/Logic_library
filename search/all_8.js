@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['init_0',['init',['../classLogic.html#afaf5406c03dc8def01922b20c1319f84',1,'Logic']]],
-  ['invertledpower_1',['InvertLedPower',['../namespacePins.html#a74ce09f14096a3d88dfa8b419f0ed49e',1,'Pins::InvertLedPower()'],['../namespacePins.html#a74ce09f14096a3d88dfa8b419f0ed49e',1,'Pins::InvertLedPower()'],['../namespacePins.html#a74ce09f14096a3d88dfa8b419f0ed49e',1,'Pins::InvertLedPower()']]],
-  ['ison_2',['isOn',['../classBuzzer.html#a910488f404047929134a59adeab800e0',1,'Buzzer']]]
+  ['get_0',['get',['../namespaceDisplayFont.html#a1bc2b09b9b508fc68697957ac82a17dd',1,'DisplayFont']]],
+  ['getint_1',['getInt',['../classNvs.html#a5575c3fc1bde7e4d25733f485922c195',1,'Nvs']]],
+  ['getstring_2',['getString',['../classNvs.html#aa025f0a845fadb7173aa90a06bc26916',1,'Nvs']]],
+  ['green_3',['Green',['../Display_8hpp.html#add2c8e8a96b750e8004c9212c7dddfd2',1,'Display.hpp']]]
 ];

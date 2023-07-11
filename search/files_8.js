@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['statusbar_2ecpp_0',['StatusBar.cpp',['../StatusBar_8cpp.html',1,'']]],
-  ['statusbar_2ehpp_1',['StatusBar.hpp',['../StatusBar_8hpp.html',1,'']]]
+  ['pinout_2ehpp_0',['Pinout.hpp',['../Pinout_8hpp.html',1,'']]],
+  ['platform_2ehpp_1',['Platform.hpp',['../Platform_8hpp.html',1,'']]]
 ];

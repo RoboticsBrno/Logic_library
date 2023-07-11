@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['y_0',['y',['../structRectangle.html#acfb20b2cecf8c9701fb12fbbfebe6cea',1,'Rectangle']]],
-  ['yellow_1',['Yellow',['../Display_8hpp.html#ab36b3588d695e511a0e1e1cbaa7d6f57',1,'Display.hpp']]]
+  ['w_0',['w',['../structRectangle.html#abfa421daace50b66f37ab89d6c826384',1,'Rectangle']]],
+  ['waitseconds_1',['waitSeconds',['../ArduinoLikeUtils_8hpp.html#af24922758f7e051912fef247c5a75d40',1,'ArduinoLikeUtils.hpp']]],
+  ['white_2',['White',['../Display_8hpp.html#aa714c9c70343a3aca5ee419d2d4c02d7',1,'Display.hpp']]],
+  ['width_3',['width',['../classDisplay.html#a996b017432159e1595ca5c9d789ab07b',1,'Display']]],
+  ['writeint_4',['writeInt',['../classNvs.html#a20a3c40ca6d2525350b92a27a36e178a',1,'Nvs']]],
+  ['writestring_5',['writeString',['../classNvs.html#a33b88fc779b6e05e80f88606444b6139',1,'Nvs']]]
 ];

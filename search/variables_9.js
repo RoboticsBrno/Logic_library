@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['status_0',['Status',['../namespacePins.html#a9df31813a2d17c7e01ff4844739fd85e',1,'Pins::Status()'],['../namespacePins.html#a9df31813a2d17c7e01ff4844739fd85e',1,'Pins::Status()'],['../namespacePins.html#a9df31813a2d17c7e01ff4844739fd85e',1,'Pins::Status()']]],
-  ['statusbar_1',['statusBar',['../Logic_8cpp.html#a4a03e534825771b1de47d31d1a1b7dfd',1,'statusBar():&#160;Logic.cpp'],['../Logic_8hpp.html#a4a03e534825771b1de47d31d1a1b7dfd',1,'statusBar():&#160;Logic.cpp']]]
+  ['up_0',['Up',['../namespacePlatform_1_1Pins_1_1Arrows.html#a77a11a5c74d213bfbb28dfc968e12726',1,'Platform::Pins::Arrows::Up()'],['../namespacePlatform_1_1Pins_1_1Arrows.html#a77a11a5c74d213bfbb28dfc968e12726',1,'Platform::Pins::Arrows::Up()'],['../namespacePlatform_1_1Pins_1_1LeftArrows.html#a12ca67648a15e6f3de406a3292d6a499',1,'Platform::Pins::LeftArrows::Up()'],['../namespacePlatform_1_1Pins_1_1RightArrows.html#a80f73f1a0a51158e2227e5a7aeb3e349',1,'Platform::Pins::RightArrows::Up()']]]
 ];

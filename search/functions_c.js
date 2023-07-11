@@ -7,11 +7,12 @@ var searchData=
   ['nakreslikruznici_4',['nakresliKruznici',['../classDisplay.html#a4465f73d78f031128eca260cbdda08f2',1,'Display']]],
   ['nakreslikruznicivyplnenou_5',['nakresliKruzniciVyplnenou',['../classDisplay.html#a05e3b6466a24f533417fd384b8318b18',1,'Display']]],
   ['nakresliobdelnik_6',['nakresliObdelnik',['../classDisplay.html#ac5d3ef5d4e502d598c92b24406e2f0bc',1,'Display::nakresliObdelnik(int x, int y, int sirka, int vyska, Rgb barva, int tloustkaCary=1)'],['../classDisplay.html#aa73d07b0ed5ca26c04a803c9600e007b',1,'Display::nakresliObdelnik(const Obdelnik &amp;obdelnik, Rgb barva, int tloustkaCary=1)']]],
-  ['nakresliobdelnikvyplneny_7',['nakresliObdelnikVyplneny',['../classDisplay.html#aac5db9aaf42a0b584c8cec677f6d3770',1,'Display::nakresliObdelnikVyplneny(int x, int y, int sirka, int vyska, Rgb barva)'],['../classDisplay.html#a1bf276344dedcd01d67181d03d02a782',1,'Display::nakresliObdelnikVyplneny(const Obdelnik &amp;obdelnik, Rgb barva)']]],
+  ['nakresliobdelnikvyplneny_7',['nakresliObdelnikVyplneny',['../classDisplay.html#a1bf276344dedcd01d67181d03d02a782',1,'Display::nakresliObdelnikVyplneny(const Obdelnik &amp;obdelnik, Rgb barva)'],['../classDisplay.html#aac5db9aaf42a0b584c8cec677f6d3770',1,'Display::nakresliObdelnikVyplneny(int x, int y, int sirka, int vyska, Rgb barva)']]],
   ['nakreslitext_8',['nakresliText',['../classDisplay.html#ae8aeb0c6333f265001101d01fd0b33dd',1,'Display::nakresliText(const char *utf8CeskyText, Rgb barva, int posunX=2, int posunY=0)'],['../classDisplay.html#a39eb0b63921ee7451a7ce438e8e6a844',1,'Display::nakresliText(const std::string &amp;utf8CeskyText, Rgb barva, int posunX=2, int posunY=0)']]],
   ['nakresliznak_9',['nakresliZnak',['../classDisplay.html#ad5f63ac2e098ac53b9b234f0df2eeb69',1,'Display']]],
-  ['nastavbarvu_10',['nastavBarvu',['../classDisplay.html#a9e911af6f624e1a4ab42a68ff15025ef',1,'Display::nastavBarvu()'],['../classStatusBar.html#aa391db4794e03a656f7c3bb02a45c17e',1,'StatusBar::nastavBarvu(Rgb barva)']]],
-  ['nastavstav_11',['nastavStav',['../classStatusBar.html#ab71d45c8bd9401f46e6a88f71780c4a2',1,'StatusBar']]],
-  ['nvs_12',['nvs',['../classLogic.html#a00957fc692b224b5fa380a8b250dc7cf',1,'Logic']]],
-  ['nvs_13',['Nvs',['../classNvs.html#ab3e37b13a0b6005ca1289da3ae1615fa',1,'Nvs::Nvs(const char *name_space, const char *partition=&quot;nvs&quot;)'],['../classNvs.html#ac8134016f5f183829a741a2be1718ee1',1,'Nvs::Nvs(const Nvs &amp;)=delete']]]
+  ['nastavbarvu_10',['nastavBarvu',['../classDisplay.html#a9e911af6f624e1a4ab42a68ff15025ef',1,'Display::nastavBarvu()'],['../classStatusBar.html#aa391db4794e03a656f7c3bb02a45c17e',1,'StatusBar::nastavBarvu()']]],
+  ['nastavitfrekvenci_11',['nastavitFrekvenci',['../classBuzzer.html#aca753ec00da11c210039322400de7e32',1,'Buzzer']]],
+  ['nastavstav_12',['nastavStav',['../classStatusBar.html#ab71d45c8bd9401f46e6a88f71780c4a2',1,'StatusBar']]],
+  ['nvs_13',['nvs',['../classLogic.html#a00957fc692b224b5fa380a8b250dc7cf',1,'Logic']]],
+  ['nvs_14',['Nvs',['../classNvs.html#ab3e37b13a0b6005ca1289da3ae1615fa',1,'Nvs::Nvs(const char *name_space, const char *partition=&quot;nvs&quot;)'],['../classNvs.html#ac8134016f5f183829a741a2be1718ee1',1,'Nvs::Nvs(const Nvs &amp;)=delete']]]
 ];

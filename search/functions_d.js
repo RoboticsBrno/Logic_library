@@ -1,7 +1,7 @@
 var searchData=
 [
   ['off_0',['off',['../classBuzzer.html#a5f80b023c04fa42185e431aca7c43d32',1,'Buzzer']]],
-  ['on_1',['on',['../classBuzzer.html#a9f9b9beeaa9790be935708dfb4f0d87e',1,'Buzzer']]],
+  ['on_1',['on',['../classBuzzer.html#a9f9b9beeaa9790be935708dfb4f0d87e',1,'Buzzer::on()'],['../classBuzzer.html#a7be8e34808c951c693245f20b43a2271',1,'Buzzer::on(std::uint32_t frequency)']]],
   ['onchange_2',['onChange',['../classButtons.html#ac1ac6a07d01a446f19aab3eda8b8a4dc',1,'Buttons::onChange(CallbackList::Callback function)'],['../classButtons.html#a013857fcd9678bc3f844c947f75db3fe',1,'Buttons::onChange(std::function&lt; void(std::bitset&lt; MaxID &gt; currentState)&gt; function)'],['../classButtons.html#a37a65ab061654121742fca8158e9232d',1,'Buttons::onChange(std::function&lt; void()&gt; function)'],['../classButtons.html#a984ac4810522267e9b26d99d2dd3e519',1,'Buttons::onChange(CallbackList::Callback function, ButtonID watchedButton)'],['../classButtons.html#a976aa8f03a404ba72a069e4683b36ea5',1,'Buttons::onChange(std::function&lt; void(bool isPressed)&gt; function, ButtonID watchedButton)'],['../classButtons.html#a0180e986979b45b7e426325104c977dd',1,'Buttons::onChange(std::function&lt; void()&gt; function, ButtonID watchedButton)']]],
   ['onchangeuntil_3',['onChangeUntil',['../classButtons.html#aeec0cd755a810db275bd280678256474',1,'Buttons']]],
   ['onnexrelease_4',['onNexRelease',['../classButtons.html#a4450221628fb03336061c9c02bfa5786',1,'Buttons']]],

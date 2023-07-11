@@ -1,6 +1,25 @@
 var searchData=
 [
-  ['ukaz_0',['ukaz',['../classDisplay.html#acee138365bb060ff6edf9c598f7b4563',1,'Display::ukaz()'],['../classStatusBar.html#a5093a0a6d191b3ca8d39c245d5a9463f',1,'StatusBar::ukaz()']]],
-  ['up_1',['Up',['../namespacePins_1_1Arrows.html#ad77ba7683ad993085ba79eac7a6bd056',1,'Pins::Arrows::Up()'],['../Pinout__1__1_8hpp.html#ad16484ab457d7f9a7741519f4e174818a57a7edcbc04d6175683383cad5c3e0a2',1,'Up():&#160;Pinout_1_1.hpp'],['../namespacePins_1_1Arrows.html#ad77ba7683ad993085ba79eac7a6bd056',1,'Pins::Arrows::Up()'],['../Pinout__1__2_8hpp.html#ad16484ab457d7f9a7741519f4e174818a57a7edcbc04d6175683383cad5c3e0a2',1,'Up():&#160;Pinout_1_2.hpp'],['../namespacePins_1_1LeftArrows.html#af0498ec729f398bbbeb938d3a07f6687',1,'Pins::LeftArrows::Up()'],['../namespacePins_1_1RightArrows.html#a3b27daa787049f366b9830c6e39e1c6f',1,'Pins::RightArrows::Up()']]],
-  ['utf8tocp_2',['utf8toCp',['../namespaceDisplayFont.html#a0ebe14f1db6991d281fa2b33a6635adf',1,'DisplayFont']]]
+  ['sanitycheck_0',['sanityCheck',['../Error_8hpp.html#a38ee489155e49e4c640b08857fa13eb6',1,'sanityCheck(bool expression, const char *tag, ErrorCodes errorCode, unsigned stackTraceDepth=10):&#160;Error.hpp'],['../Error_8hpp.html#aec14a84fad17d169d601284226a2dbd5',1,'sanityCheck(bool expression, const char *tag, const char *errorMessage, unsigned stackTraceDepth=10):&#160;Error.hpp']]],
+  ['saveint_1',['saveInt',['../ArduinoLikeUtils_8hpp.html#a4220371d19694163895c4423c85fb3a2',1,'saveInt(const std::string &amp;name, int value):&#160;ArduinoLikeUtils.cpp'],['../ArduinoLikeUtils_8cpp.html#a4220371d19694163895c4423c85fb3a2',1,'saveInt(const std::string &amp;name, int value):&#160;ArduinoLikeUtils.cpp']]],
+  ['seconds_2',['seconds',['../ArduinoLikeUtils_8hpp.html#ab53334924c8ee90693b8d48d8f74793d',1,'ArduinoLikeUtils.hpp']]],
+  ['setcolor_3',['setColor',['../classDisplay.html#a6e24aef01e9bab3f9f4bd9df189ff1a6',1,'Display::setColor()'],['../classStatusBar.html#ae4675d7582c20122a33c7b4feec82e36',1,'StatusBar::setColor()']]],
+  ['setfrequency_4',['setFrequency',['../classBuzzer.html#ad1a2c73d51b83b7a5a1f6883353e5279',1,'Buzzer']]],
+  ['setstate_5',['setState',['../classStatusBar.html#a5cc9edcec24ce5533aec2ebc0f0bee2a',1,'StatusBar']]],
+  ['show_6',['show',['../classDisplay.html#a59a7cf0a468d1b8132821f95131ec925',1,'Display::show()'],['../classStatusBar.html#a9eb0f59d7094313efadbf6af8a2b0cb0',1,'StatusBar::show()']]],
+  ['singleton_7',['singleton',['../classLogic.html#af976d4db89dbe21e816a85197c8a05d2',1,'Logic']]],
+  ['sirka_8',['sirka',['../classDisplay.html#a9fdbc4678719b8468f2d08f24ef948e0',1,'Display']]],
+  ['sirkapisma_9',['sirkaPisma',['../classDisplay.html#a7b6059456112f15ec20af40dca077a69',1,'Display']]],
+  ['smazatcallback_10',['smazatCallback',['../classButtons.html#a598d8042c2feeaeaaad02d020c2ce5b4',1,'Buttons']]],
+  ['state_11',['state',['../classStatusBar.html#aff3895b94da2e4e4376d6875129f64f3',1,'StatusBar']]],
+  ['states_12',['States',['../StatusBar_8hpp.html#a808e5cd4979462d3bbe3070d7d147444',1,'StatusBar.hpp']]],
+  ['status_13',['Status',['../namespacePlatform_1_1Pins.html#a11313619b9a76bdcfb5314bcd7d54572',1,'Platform::Pins::Status()'],['../namespacePlatform_1_1Pins.html#a11313619b9a76bdcfb5314bcd7d54572',1,'Platform::Pins::Status()'],['../namespacePlatform_1_1Pins.html#a11313619b9a76bdcfb5314bcd7d54572',1,'Platform::Pins::Status()']]],
+  ['statusbar_14',['StatusBar',['../classStatusBar.html#a57dae75b817e9a1d45884b3e11a0ada0',1,'StatusBar']]],
+  ['statusbar_15',['statusBar',['../Logic_8cpp.html#a4a03e534825771b1de47d31d1a1b7dfd',1,'statusBar():&#160;Logic.cpp'],['../Logic_8hpp.html#a4a03e534825771b1de47d31d1a1b7dfd',1,'statusBar():&#160;Logic.cpp'],['../classLogic.html#a83347cbca7b0c32960cdbafa095624e0',1,'Logic::statusBar()']]],
+  ['statusbar_16',['StatusBar',['../classStatusBar.html#a72ad18d713c9b3bf80953a976d39d5fb',1,'StatusBar::StatusBar()'],['../classStatusBar.html',1,'StatusBar']]],
+  ['statusbar_2ecpp_17',['StatusBar.cpp',['../StatusBar_8cpp.html',1,'']]],
+  ['statusbar_2ehpp_18',['StatusBar.hpp',['../StatusBar_8hpp.html',1,'']]],
+  ['stav_19',['stav',['../classStatusBar.html#abb186ca504789a93ab0d7540a41b90f0',1,'StatusBar']]],
+  ['stavovyradek_20',['StavovyRadek',['../StatusBar_8hpp.html#aa9489ddbf0bb18c5cfa4f2c0d97fd7bf',1,'StatusBar.hpp']]],
+  ['stavy_21',['Stavy',['../StatusBar_8hpp.html#ac2e1ec857876143766b4282aaa90e496',1,'StatusBar.hpp']]]
 ];
