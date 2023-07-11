@@ -17,7 +17,7 @@ for d in $(find examples -maxdepth 1 -mindepth 1 -type d); do
     sed -i "s/Logic_library\.git/Logic_library\.git#$revision/g" platformio.ini
     cat platformio.ini
 
-    if ! platformio run -e normal; then
+    if ! platformio run -e logic_1_1; then
         echo "::error ::Failed to build $d"
         failed=true;
     else
