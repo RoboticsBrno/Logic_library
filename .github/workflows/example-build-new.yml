@@ -10,42 +10,13 @@ jobs:
           - logic_1_1
           - logic_1_2
           - logic_2_0
-        example: 
-          - _TEMPLATE
-          - buttons
-          - buttons-leds
-          - buzzer
-          - cteni_souboru
-          - display
-          - game-pong
-          - game-simon
-          - graphics_01_generativeDesign
-          - graphics_02_fire
-          - graphics_03_knight_rider
-          - network-room
-          - rbcontroller-basic
-          - sachovnice
-          - snake_01_dot_move
-          - snake_01_dot_move_infin
-          - snake_02_change_direction
-          - snake_03_tail
-          - statusBar
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cache/pip
-            ~/.platformio/.cache
-          key: ${{ runner.os }}-pio
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-      - name: Install PlatformIO Core
-        run: pip install --upgrade platformio
-
-      - name: Build PlatformIO examples
-        run: pio ci -e ${{ matrix.environment }} -l"." -c examples/${{ matrix.example }}/platformio.ini -O="board_build.partitions=examples/${{ matrix.example }}/partitions.csv"
-        env:
-          PLATFORMIO_CI_SRC: examples/${{ matrix.example }}/src
-          PLATFORMIO_BUILD_FLAGS: -Iexamples/${{ matrix.example }}/include
+        - uses: actions/checkout@v1
+        - name: Set up Python
+          uses: actions/setup-python@v1
+        - name: Install dependencies
+          run: |
+            python -m pip install --upgrade pip
+            pip install platformio
+        - name: Build examples
+          run: ./build_examples.sh ${{ matrix.environment }}
