@@ -6,8 +6,8 @@ jobs:
     strategy:
       matrix:
         environment: 
-          - logic_1_0
           - logic_1_1
+          - logic_1_2
           - logic_2_0
         example: 
           - _TEMPLATE
