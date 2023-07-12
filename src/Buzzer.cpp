@@ -30,6 +30,7 @@ Buzzer::Buzzer() {
             .flags = { 0 }
         };
         ESP_ERROR_CHECK(ledc_channel_config(&ledc_channel));
+        // ESP_ERROR_CHECK(ledc_fade_func_install(0));
     }
 }
 
@@ -51,7 +52,8 @@ void Buzzer::on() {
     if constexpr (!Platform::AdjustableBuzzer) {
         gpio_set_level(Platform::Pins::Buzzer, 1);
     } else {
-        ledc_set_duty_and_update(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, 512, 0);
+        ledc_set_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0, 512);
+        ledc_update_duty(LEDC_LOW_SPEED_MODE, LEDC_CHANNEL_0);
     }
     m_on = true;
 }
